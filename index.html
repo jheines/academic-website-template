@@ -69,8 +69,15 @@
   </div>
 </section>
 
-    <!-- About Section -->
-    <section id="about" class="about section alt-section" data-aos="fade-up">
+    <!-- About Section (id must be "mywork" to match the nav link in
+         navigation.html and the heading override in site-preferences.json) -->
+    <section id="mywork" class="about section alt-section" data-aos="fade-up">
+      <!-- Default heading text here is overwritten at load time by
+           sections.mywork in assets/data/site-preferences.json (see
+           setSectionHeadings() in assets/js/index-preferences.js). -->
+      <div class="container section-title">
+        <h2>About My Work</h2>
+      </div>
       <div class="content-container">
         <div class="about-container">
           <p id="about-text"></p>

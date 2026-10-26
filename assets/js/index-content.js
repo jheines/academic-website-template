@@ -50,6 +50,16 @@ function renderHero(about) {
   if (nameEl && about.name) nameEl.textContent = String(about.name);
   if (taglineEl && about.tagline) taglineEl.textContent = String(about.tagline);
 
+  // Hero headshot: set src/alt from about.json so the image and its
+  // accessible description stay in sync (mirrors the nav profile image
+  // logic in navigation-content.js).
+  const headshotEl = document.querySelector('.headshot-container img');
+  if (headshotEl) {
+    if (about.profileImage) headshotEl.src = about.profileImage;
+    headshotEl.alt = about.profileImageAlt ||
+      (about.name ? `${about.name} profile photo` : 'Profile photo');
+  }
+
   // typed.js (if present on the page)
   const typedHost = document.querySelector('.typed');
   if (typedHost && Array.isArray(about.typedItems) && about.typedItems.length) {

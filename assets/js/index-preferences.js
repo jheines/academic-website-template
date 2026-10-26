@@ -1,13 +1,12 @@
 /* indexcontent.js */
 "use strict";
 
+// Note: section content (about, research, publications, projects,
+// technologies) is fetched and rendered by index-content.js in its own
+// DOMContentLoaded handler. This file only applies site-wide preferences
+// (theme colors and section heading text).
 document.addEventListener('DOMContentLoaded', () => {
-  loadSitePreferences();  
-  loadAbout();
-  loadResearch();
-  loadPublications();
-  loadProjects();
-  loadTechnologies();
+  loadSitePreferences();
 });
 
 function applyThemeFromPreferences(theme) {
