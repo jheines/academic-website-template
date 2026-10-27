@@ -111,6 +111,9 @@ You’ll mostly edit small JSON/CSV files in assets/data. Images live in assets/
 
 * Leave a social link **blank** to hide that icon.
 * Contacts render as labeled lines in the left navigation.
+* `tagline` supports simple inline HTML, like `<em>` for italics or `<br>`
+  for a line break (e.g. a title on one line and an institution on the
+  next). Same idea as the `citation` field in `publications.json`.
 
 ## `research.json` (list of research topics / areas)
 

@@ -48,7 +48,10 @@ function renderHero(about) {
   const taglineEl = document.getElementById('site-tagline');
 
   if (nameEl && about.name) nameEl.textContent = String(about.name);
-  if (taglineEl && about.tagline) taglineEl.textContent = String(about.tagline);
+  // tagline is set via innerHTML (like publications.json citations) so
+  // about.json can use simple inline markup, e.g. <em> and <br> for a
+  // two-line title/institution tagline.
+  if (taglineEl && about.tagline) taglineEl.innerHTML = String(about.tagline);
 
   // Hero headshot: set src/alt from about.json so the image and its
   // accessible description stay in sync (mirrors the nav profile image

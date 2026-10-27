@@ -1,11 +1,12 @@
 {
-  "name": "Jane Doe",
-  "tagline": "Researcher, educator, and designer",
+  "name": "Jesse M. Heines, Ed.D.",
+  "tagline": "<em>Professor Emeritus</em>, University of Massachusetts Lowell<br>Richard A. Miner School of Computer &amp; Information Sciences",
   "typedItems": [
-    "Educator",
-    "Researcher",
-    "Designer",
-    "Advocate"
+    "Teacher",
+    "Author",
+    "Speaker",
+    "Singer",
+    "Photographer"
   ],
   "text": "This is my bio where I describe my current role, future goals, and research interests.",
   "roles": [
@@ -51,5 +52,5 @@
     "researchgate": "https://www.researchgate.com/example"
   },
   "profileImage": "assets/img/profile-headshot.png",
-  "profileImageAlt": "Jane Doe headshot"
+  "profileImageAlt": "Jesse M. Heines headshot"
 }
