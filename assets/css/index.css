@@ -1,10 +1,15 @@
-
+/** File: assets\css\index.css
+ *  written by Morgan Vickery, https://github.com/morganavickery
+ *  maintained by Jesse M. Heines, jesse@jesseheines.com using Claude Code
+ *  Copyright (c) 2026 by Jesse Heines.  All rights reserved.  May be freely
+ *    copied or excerpted for educational purposes with credit to the author.
+ *  updated by JMH on October 28, 2026 at 9:38 AM
+ */
 
 
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
-
 
 .hero .background-container img {
   position: absolute;
@@ -83,7 +88,15 @@
   /* Adjust font size */
 }
 
+/* removed by Claude, 2026-10-28 09:14 -- was too broad, underlined every
+   span in a hero <p>, including the new tagline device-variant spans
 .hero p span {
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--accent-color);
+}
+*/
+/* added by Claude, 2026-10-28 09:14 -- scoped to the typed.js word only */
+.hero p span.typed {
   letter-spacing: 1px;
   border-bottom: 2px solid var(--accent-color);
 }
@@ -168,20 +181,20 @@
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;  
-  gap: 8px;                 
+  justify-content: center;
+  gap: 8px;
 }
 
 .topic-tile {
   background-color: color-mix(in srgb, var(--surface-color) 80%, transparent);
   border: 1px solid color-mix(in srgb, var(--accent-color) 100%, transparent);
   color: var(--accent-color);
-  border-radius: 8px;   
-  padding: 4pt;             
-  display: inline-flex;   
+  border-radius: 8px;
+  padding: 4pt;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;     
+  white-space: nowrap;
   line-height: 1.1;
   font-weight: 600;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -431,19 +444,19 @@
 --------------------------------------------------------------*/
 
 .pubs-list .tile-link {
-  display: inline-flex; 
+  display: inline-flex;
   align-items: center;
-  gap: 4px; 
+  gap: 4px;
   text-decoration: none;
   font-size: 0.5rem;
   font-weight: 500;
   color: var(--accent-color);
   border: 1px solid var(--accent-color);
-  padding: 4px 8px; 
+  padding: 4px 8px;
   border-radius: 4px;
   transition: background-color 0.3s ease, color 0.3s ease;
-  margin-left: 5px; 
-  white-space: nowrap; 
+  margin-left: 5px;
+  white-space: nowrap;
 }
 
 .pubs-list .tile-link:hover {
@@ -455,18 +468,18 @@
   font-size: 0.6rem;
 }
 .pubs-list p {
-  margin: 0; 
-  padding-left: 20px; 
-  text-indent: -20px; 
-  font-size: smaller; 
-  line-height: 1.5; 
+  margin: 0;
+  padding-left: 20px;
+  text-indent: -20px;
+  font-size: smaller;
+  line-height: 1.5;
   position: relative;
 }
 
 .pubs-list p a {
-  display: inline-block; 
-  margin-left: 10px; 
-  text-indent: 0; 
-  vertical-align: middle; 
+  display: inline-block;
+  margin-left: 10px;
+  text-indent: 0;
+  vertical-align: middle;
 }
 

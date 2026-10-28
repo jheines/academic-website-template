@@ -9,6 +9,8 @@
   updated by JMH on September 20, 2026 at 2:50 PM
   updated by Claude (Sonnet 5), at Jesse's request, on October 26, 2026
     -- replaced the "preserve the existing site" condition below
+  updated by Claude (Sonnet 5), at Jesse's request, on October 28, 2026
+    -- added the "comment, don't delete" condition below
 -->
 
 # Project Purpose
@@ -38,3 +40,17 @@ Professor Emeritus of Computer Science at UMass Lowell.
 
 - Use 2-space indentation in all code.
 - Document all code.
+
+<!-- Condition below added by Claude (Sonnet 5) on October 28, 2026, at Jesse's
+     request. -->
+- When removing a line of code, comment it out (using that file type's
+  comment syntax) instead of deleting it, so it stays visible in the file.
+- When adding a line of code, mark it with a trailing or adjacent comment
+  in the form `added by Claude, <YYYY-MM-DD HH:MM>`, e.g.
+  `// added by Claude, 2026-10-28 08:27` in JS, or
+  `<!-- added by Claude, 2026-10-28 08:27 -->` in HTML.
+- Exception: JSON files (`.json`) have no comment syntax at all, so the two
+  rules above don't apply to them. Document JSON changes in the commit
+  message instead, and in a file's own `comment` metadata field where one
+  already exists (see `assets/data/about.json`).
+<!-- End of 2026-10-28 change by Claude. -->

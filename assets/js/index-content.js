@@ -47,7 +47,16 @@ function renderHero(about) {
   const nameEl = document.getElementById('site-name');
   const taglineEl = document.getElementById('site-tagline');
 
-  if (nameEl && about.name) nameEl.textContent = String(about.name);
+  // added by Claude, 2026-10-28 09:32 -- full name on tablet/desktop
+  // (>=768px), shorter "nameShort" on phones, so the <h1> doesn't wrap
+  // onto 3 lines on a narrow screen. about.name itself stays plain text,
+  // since it's also used for the nav heading and image alt text below.
+  if (nameEl && about.name) {
+    const shortName = about.nameShort || about.name;
+    nameEl.innerHTML =
+      `<span class="d-none d-md-inline">${about.name}</span>` +
+      `<span class="d-inline d-md-none">${shortName}</span>`;
+  }
   // tagline is set via innerHTML (like publications.json citations) so
   // about.json can use simple inline markup, e.g. <em> and <br> for a
   // two-line title/institution tagline.

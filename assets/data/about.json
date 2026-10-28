@@ -1,6 +1,15 @@
 {
+  "comment": {
+    "file": "assets/data/about.json",
+    "author": "Morgan Vickery, https://github.com/morganavickery",
+    "maintainer": "by Jesse M. Heines, jesse@jesseheines.com using Claude Code",
+    "copyright": "(c) 2026 by Jesse Heines.  All rights reserved.",
+    "permission":  "May be copied or excerpted for educational purposes with credit to the author and maintainer.",
+    "updated": "October 28, 2026 at 7:52 AM"
+  },
   "name": "Jesse M. Heines, Ed.D.",
-  "tagline": "<em>Professor Emeritus</em>, University of Massachusetts Lowell<br>Richard A. Miner School of Computer &amp; Information Sciences",
+  "nameShort": "Jesse Heines",
+  "tagline": "<em>Professor Emeritus</em>, <span class=\"d-none d-md-inline\">University of Massachusetts Lowell</span><span class=\"d-inline d-md-none\">UMass Lowell</span><br><span class=\"d-none d-md-inline\">Richard A. Miner School of Computer &amp; Information Sciences</span><span class=\"d-inline d-md-none\">Computer Science</span>",
   "typedItems": [
     "Teacher",
     "Author",
