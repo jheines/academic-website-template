@@ -1,0 +1,443 @@
+{
+  "comment": {
+          "file" : "assets/data/ThruTheYears-CaptionList.json",
+        "author" : "Jesse M. Heines, https://jesseheines.com",
+    "maintainer" : "Jesse M. Heines, jesse@jesseheines.com and Claude Code",
+     "copyright" : "(c) 2026 by Jesse M. Heines.  All rights reserved.",
+    "permission" :  "May be copied or excerpted for educational purposes with credit to the author and maintainer.",
+       "updated" : "October 30, 2026 at 10:08 PM",
+     "validator" : "https://jsonlint.com/"
+  },
+  "1948-10_0006_400x400_Jesse_TowelOnHead.jpg" :
+    { "title" : "In My First Year of Life",
+        "age" : "6 months old",
+       "date" : "October 1948" },
+  "1949-10_0106_400x400_Jesse_WithBunny.jpg" :
+    { "title" : "With My Favorite Bunny",
+        "age" : "18 months old",
+       "date" : "October 1949" },
+  "1950-10_0206_400x400_Jesse_Seated.jpg" :
+    { "title" : "Studio Portrait",
+        "age" : "2 years old",
+       "date" : "October 1950" },
+  "1950-12_0208_400x400_Jesse_StudioPortrait.jpg" :
+    { "title" : "Studio Portrait",
+        "age" : "3 years old",
+       "date" : "December 1951" },
+  "1952-08_0404_400x400_HeinesFamily.jpg" :
+    { "title" : "With My Immediate Family &mdash; <span class='nobold'><em>I&rsquo;m the little guy</em></span> &#128522;",
+        "age" : "4 years old",
+       "date" : "August 1952" },
+  "1954-01_0509_400x400_Jesse_WithBook.jpg" :
+    { "title" : "I Liked Books Even Then",
+        "age" : "5 years old",
+       "date" : "January 1954" },
+  "1954-07_0603_400x400_JesseHenry_1953Ford.jpg" :
+    { "title" : "With My Brother Henry in Our 1953 Ford Station Wagon",
+        "age" : "6 years old",
+       "date" : "July 1954" },
+  "1955-04_0700_1200x1200_WithDadAtSeder.jpg" :
+    { "title" : "With My Dad at Our Family Seder",
+        "age" : "6 years old",
+       "date" : "April 1955" },
+  "1955-10_0706_400x400_Jesse_StudioPortrait.jpg" :
+    { "title" : "In 2nd Grade",
+        "age" : "7 years old",
+       "date" : "October 1955" },
+  "1956-10_0806_400x400_Jesse_3rdGrade.jpg" :
+    { "title" : "In 3rd Grade",
+        "age" : "8 years old",
+       "date" : "October 1956" },
+  "1957-04_0900_400x400_Jesse_PlayingTrumpet_WaltMilligan.jpg" :
+    { "title" : "Playing Trumpet at friend Walt Milligan&rsquo;s house",
+        "age" : "9 years old",
+       "date" : "April 1957" },
+  "1958-06_1002_400x400_JesseHenry_PlayingTrumpetWithHenry.jpg" :
+    { "title" : "Playing Trumpet with My Brother Henry on Saxophone",
+        "age" : "10 years old",
+       "date" : "June 1958" },
+  "1959-11_1107_400x400_Jesse_StringTie.jpg" :
+    { "title" : "In 6th Grade",
+        "age" : "11 years old",
+       "date" : "November 1959" },
+  "1961-01_1209_400x400_Jesse_WithElliotHershman.jpg" :
+    { "title" : "Photo booth shot with my cousin Elliot",
+        "age" : "12 years old",
+       "date" : "January 1961" },
+  "1961-04_1301_400x400_Jesse_BarMitzvah.jpg" :
+    { "title" : "Bar Mitzvah Boy",
+        "age" : "13 years old",
+       "date" : "April 1961" },
+  "1961-05_1301_400x400_Jesse_PlaidShirt.jpg" :
+    { "title" : "In 7th Grade",
+        "age" : "13 years old",
+       "date" : "May 1961" },
+  "1962-09_1405_400x400_Jesse_PocketProtector.jpg" :
+    { "title" : "Yes, that&rsquo;s really a pocket protector! &#128522;",
+        "age" : "14 years old",
+       "date" : "September 1962" },
+  "1963-04_1500_400x400_Jesse_HighSchoolFreshmanYearbook.jpg" :
+    { "title" : "High School Freshman &mdash; Yearbook Picture",
+        "age" : "15 years old",
+       "date" : "April 1963" },
+  "1965-03_1611_400x400_Jesse_atHome_EBNJ_HighSchoolJunior.jpg" :
+    { "title" : "In My Junior Year of High School",
+        "age" : "16 years old",
+       "date" : "March 1965" },
+  "1965-05_1701_400x400_JesseRona_JuniorProm.jpg" :
+    { "title" : "High School Junior Prom",
+        "age" : "17 years old",
+       "date" : "May 1965" },
+  "1966a-06_1802_400x400_JesseRona_SeniorProm.jpg" :
+    { "title" : "High School Senior Prom &mdash; <span class='nobold'><em>me or Buddy Holly?!?</em></span>",
+        "age" : "18 years old",
+       "date" : "June 1966" },
+  "1966b-06_1802_400x400_Jesse_HighSchoolSeniorYearbook.jpg" :
+    { "title" : "High School Senior &mdash; Yearbook Picture",
+        "age" : "18 years old",
+       "date" : "June 1966" },
+  "1967-09_1905_400x400_Jesse_Honda90_BakerHouse_MITSophomore.jpg" :
+    { "title" : "On My 90cc Honda in My Sophomore Year at MIT",
+        "age" : "19 years old",
+       "date" : "September 1967" },
+  "1968-09_2005_400x400_Jesse_JuniorInMITBakerHouse.jpg" :
+    { "title" : "In Baker House in My Junior Year at MIT",
+        "age" : "20 years old",
+       "date" : "September 1968" },
+  "1969-06_2102_400x400_Jesse_IsraelKibbutz.jpg" :
+    { "title" : "On a Kibbutz in Israel After My Junior Year at MIT",
+        "age" : "21 years old",
+       "date" : "June 1969" },
+  "1970-04_2200_400x400_Jesse_CollegeSeniorYearbook.jpg" :
+    { "title" : "College Senior &mdash; MIT Yearbook Picture",
+        "age" : "22 years old",
+       "date" : "April 1970" },
+  "1971-05_2301_400x400_Jesse_EngagementPhoto.jpg" :
+    { "title" : "During My First Year of Teaching in Moscow, USSR",
+        "age" : "23 years old",
+       "date" : "May 1971" },
+  "1972-05_2401_400x400_JesseTolya_OutsideMoscow.jpg" :
+    { "title" : "With My Russian Friend Tolya, Near Moscow, USSR",
+        "age" : "24 years old",
+       "date" : "May 1972" },
+  "1973-12_2508_400x400_Jesse_atLouiseTheIBMSelectricTerminal.jpg" :
+    { "title" : "At an IBM Selectric Terminal <span class='nobold'>(Grad School)</span>",
+        "age" : "25 years old",
+       "date" : "December 1973" },
+  "1974-03_2511_400x400_Jesse_SchoolClown.jpg" :
+    { "title" : "As a Clown for an Elementary School Picnic",
+        "age" : "25 years old",
+       "date" : "March 1974" },
+  "1974-09_2605_400x400_Jesse_InMyDECCube.jpg" :
+    { "title" : "At My Desk at Digital Equipment Corporation",
+        "age" : "26 years old",
+       "date" : "September 1974" },
+  "1975-04_2700_400x400_Jesse_27thBirthdayAtDEC.jpg" :
+    { "title" : "Celebrating My 27th Birthday at DEC",
+        "age" : "27 years old",
+       "date" : "April 1975" },
+  "1975-11_2707_400x400_JesseScott_NewBorn.jpg" :
+    { "title" : "As a New Father <span class='nobold'>&mdash; <em>how about that bow tie?!?</em></span>&nbsp; &#128522;",
+        "age" : "27 years old",
+       "date" : "November 1975" },
+  "1976-04_2800_400x400_JesseScottDad_ArbitRoad.jpg" :
+    { "title" : "Three Generations: with My Dad and Scott <span class='nobold'>(my first son)</span>",
+        "age" : "28 years old",
+       "date" : "April 1976" },
+  "1976-05_2801_400x400_Jesse_atHome-MaynardMA.jpg" :
+    { "title" : "After Shaving Off My Beard",
+        "age" : "28 years old",
+       "date" : "May 1976" },
+  "1976-08_2804_400x400_Jesse_LongBeachIslandNJ-wScott.jpg" :
+    { "title" : "With My Son Scott, Long Beach Island, NJ",
+        "age" : "28 years old",
+       "date" : "August 1976" },
+  "1977-04_2900_400x400_JesseScott_29thBday.jpg" :
+    { "title" : "With My Son Scott on My 29th Birthday ",
+        "age" : "29 years old",
+       "date" : "April 1977" },
+  "1978-07_4003_400x400_JesseMamMom_18CourtlandDrive.jpg" :
+    { "title" : "With My Mother-In-Law and My Mother",
+        "age" : "30 years old",
+       "date" : "July 1978" },
+  "1979-05_3101_400x400_Jesse_EdDGradParty.jpg" :
+    { "title" : "At My Doctoral Degree Graduation Party",
+        "age" : "31 years old",
+       "date" : "May 1979" },
+  "1980-06_3202_400x400_JesseScott_VT52.jpg" :
+    { "title" : "With My Son Scott at a VT52 Terminal",
+        "age" : "32 years old",
+       "date" : "June 1980" },
+  "1981-08_3304_400x400_JesseRussell_CathedralOfThePines.jpg" :
+    { "title" : "With My Son Russell, Cathedral of the Pines, NH",
+        "age" : "33 years old",
+       "date" : "August 1981" },
+  "1982-12_3408_400x400_JesseScottRussell_atKilburnsHouse.jpg" :
+    { "title" : "With Russell &amp; Scott at Ken &amp; Sue Kilburn&rsquo;s home",
+        "age" : "34 years old",
+       "date" : "December 1982" },
+  "1983-08_3504_400x400_Jesse_VivianMillerGoingAwayParty.jpg" :
+    { "title" : "At a Family Party",
+        "age" : "35 years old",
+       "date" : "August 1983" },
+  "1984-03_3511_400x400_JesseRussell_KathyJacobowitzBatMitzvah.jpg" :
+    { "title" : "With My Son Russell",
+        "age" : "35 years old",
+       "date" : "March 1984" },
+  "1984-07_3603_400x400_Jesse_AtAmericanStageFestival.jpg" :
+    { "title" : "At the American Stage Festival <span class='nobold'>&mdash; photo by Sally Grigas</span>",
+        "age" : "36 years old",
+       "date" : "July 1984" },
+  "1985-04_3700_400x400_Jesse-Scott9-Russell7_OlanMills.jpg" :
+    { "title" : "With My Two Sons",
+        "age" : "37 years old",
+       "date" : "April 1985" },
+  "1985-05_3701_400x400_UMLGraduation.jpg" :
+    { "title" : "At UMass Lowell Graduation",
+        "age" : "37 years old",
+       "date" : "May 1985" },
+  "1986-08_3804_400x400_Jesse_CarryingHenryAtLongBeachIsland.jpg" :
+    { "title" : "With My Brother Henry, Long Beach Island, NJ",
+        "age" : "38 years old",
+       "date" : "August 1986" },
+  "1987-05_3901_400x400_JesseScottRussell_MarbleheadMA.jpg" :
+    { "title" : "With My Boys, Marblehead, MA<span class='nobold'>, Univ. of Lowell Days!</span>",
+        "age" : "39 years old",
+       "date" : "May 1987" },
+  "1988-06_4002_400x400_JesseScott_JasonHershmanBarMitzvah.jpg" :
+    { "title" : "With My Son Scott, Cherry Hill, NJ",
+        "age" : "40 years old",
+       "date" : "June 1988" },
+  "1989-05_4101_400x400_JesseDorothy_AtHenryKatherineWedding.jpg" :
+    { "title" : "With My Mother, San Francisco Bay, CA",
+        "age" : "41 years old",
+       "date" : "May 1989" },
+  "1990-05_4201_400x400_Jesse_BahaCA.jpg" :
+    { "title" : "Enjoying the Sun in Guadalajara, Mexico",
+        "age" : "42 years old",
+       "date" : "May 1990" },
+  "1991-04_4300_400x400_Jesse_ChillingBetweenScubaDives.jpg" :
+    { "title" : "Chillin&rsquo; Between Scuba Dives, Gloucester, MA",
+        "age" : "43 years old",
+       "date" : "April 1991" },
+  "1992-12_4408_400x400_Jesse_OnTrapezeInJamaica.jpg" :
+    { "title" : "Taking a Trapeze Lesson at a Club in Jamaica",
+        "age" : "44 years old",
+       "date" : "December 1992" },
+  "1994-01_4509_400x400_Jesse_Cozumel.jpg" :
+    { "title" : "With a Local Friend in Cozumel",
+        "age" : "45 years old",
+       "date" : "January 1994" },
+  "1994-11_4607_400x400_Jesse_AsstToProvostAppointment.jpg" :
+    { "title" : "On My Appointment to Assistant to the Provost",
+        "age" : "46 years old",
+       "date" : "November 1994" },
+  "1995-01_4609_400x400_JesseScottRussell_LoonMountain.jpg" :
+    { "title" : "Skiing with My Sons at Loon Mountain, NH",
+        "age" : "46 years old",
+       "date" : "January 1995" },
+  "1995-06_4702_400x400_Jesse_CentennialCostume.jpg" :
+    { "title" : "At UMass Lowell Centennial Party",
+        "age" : "47 years old",
+       "date" : "June 1995" },
+  "1997-01_4909_400x400_Jesse_UMassLowellNewsletter.jpg" :
+    { "title" : "In My UMass Lowell Office",
+        "age" : "48 years old",
+       "date" : "January 1997" },
+  "1997-02_4810_400x400_JesseBonnie_atMariaPuglisi.jpg" :
+    { "title" : "With Bonnie at Friend Maria Puglisi&rsquo;s house",
+        "age" : "48 years old",
+       "date" : "February 1997" },
+  "1997-11_4907_400x400_JesseBonnie_Wedding.jpg" :
+    { "title" : "With Bonnie at Our Wedding",
+        "age" : "49 years old",
+       "date" : "November 1997" },
+  "1998a-04_5000_400x400_Jesse_UWEasterEggHunt.jpg" :
+    { "title" : "Underwater Easter Egg Hunt, Rockport, MA",
+        "age" : "50 years old",
+       "date" : "April 1998" },
+  "1999-11_5107_400x400_Jesse_AtRigasApartment.jpg" :
+    { "title" : "At the Home of Rigas Rigopoulos, Athens, Greece",
+        "age" : "51 years old",
+       "date" : "November 1999" },
+  "2000-08_5204_400x400_JesseBonnie_SonomaCountyFair_byKatherine.jpg" :
+    { "title" : "With Bonnie at the Sonoma County Fair, CA",
+        "age" : "52 years old",
+       "date" : "August 2000" },
+  "2001-03_5311_400x400_JesseScott_ColumbiaGorgeOregon.jpg" :
+    { "title" : "With My Son Scott, Columbia River Gorge, OR",
+        "age" : "52 years old",
+       "date" : "March 2001" },
+  "2001-11_5307_400x400_JesseBonnie_Gloucester_byKatherine.jpg" :
+    { "title" : "With Bonnie, Gloucester <span class='nobold'>&mdash; photo by sister-in-law Katherine</span>",
+        "age" : "53 years old",
+       "date" : "November 2001" },
+  "2002-10_5406_400x400_Jesse_AtZakimBridgeOpening.jpg" :
+    { "title" : "At Zakim Bridge Opening, Boston, MA",
+        "age" : "54 years old",
+       "date" : "October 2002" },
+  "2003-05_5501_400x400_Jesse_GraduatingStudentsBreakfast.jpg" :
+    {  "omit" : true,
+      "title" : "Serving at the Graduating Students&rsquo; Breakfast",
+        "age" : "55 years old",
+       "date" : "May 2003" },
+  "2003-12_5508_400x400_JesseHenry_ReyesBeachCA.jpg" :
+    { "title" : "With My Brother Henry at Reyes Beach, CA",
+        "age" : "55 years old",
+       "date" : "December 2003" },
+  "2004-09_5605_400x400_Jesse_LaborDay_Dscn3485.jpg" :
+    { "title" : "At a Labor Day Weekend Party",
+        "age" : "56 years old",
+       "date" : "September 2004" },
+  "2005-03_5611_400x400_Jesse_SkiingLakePlacid.jpg" :
+    { "title" : "Skiing at Lake Placid, NY",
+        "age" : "56 years old",
+       "date" : "March 2005" },
+  "2006-03_5711_400x400_Jesse_EasternPhotographic.jpg" :
+    { "title" : "Eastern Photographic Faculty Portrait",
+        "age" : "57 years old",
+       "date" : "March 2006" },
+  "2007-03_5811_400x400_Jesse_PalmBeachZooFL.jpg" :
+    { "title" : "At Florida&rsquo;s Palm Beach Zoo",
+        "age" : "58 years old",
+       "date" : "March 2007" },
+  "2007-07_5903_400x400_JesseBonnie_RussianShow_byDavidHorton.jpg" :
+    { "title" : "With Bonnie in Russia <span class='nobold'>&mdash; photo by friend David Horton</span>",
+        "age" : "59 years old",
+       "date" : "July 2007" },
+  "2008-09_6005_400x400_Jesse_RussellIngridWedding.jpg" :
+    { "title" : "At My Son Russell&rsquo;s Wedding, Cambridge, MA",
+        "age" : "60 years old",
+       "date" : "September 2008" },
+  "2009-05_6101_400x400_JesseMarty_AtGraduation.jpg" :
+    { "title" : "With Then Chancellor Marty Meehan at Graduation",
+        "age" : "61 years old",
+       "date" : "May 2009" },
+  "2010-12_6208_400x400_JesseRuby_Reading.jpg" :
+    { "title" : "Reading to Granddaughter Ruby",
+        "age" : "62 years old",
+       "date" : "December 2010" },
+  "2011-07_6303_400x400_Jesse_Sebastopol_byBeibeiYang.jpg" :
+    { "title" : "Sebastopol, CA <span class='nobold'>&mdash; photo by PhD grad Beibei Yang</span>",
+        "age" : "63 years old",
+       "date" : "July 2011" },
+  "2012-07_6403_400x400_JesseBonnie_Jerusalem66CEModelIsrael.jpg" :
+    { "title" : "With Bonnie in Jerusalem, Israel",
+        "age" : "64 years old",
+       "date" : "July 2012" },
+  "2013-04_6500_400x400_JesseJacqui_SingingAtMyBdayParty.jpg" :
+    { "title" : "Singing with Granddaughter Jacqui (2&half;)",
+        "age" : "65 years old",
+       "date" : "April 2013" },
+  "2013-10-31_400x400_Jesse_KingCaspar_Amahl.jpg" :
+    { "title" : "Teaching Class on Halloween as King Caspar in <em>Amahl</em>",
+        "age" : "65 years old",
+       "date" : "October 2013" },
+  "2014-04_6600_400x400_FiresideDivisionContest.jpg" :
+    { "title" : "With My Barbershop Quartet: &ldquo;Fireside&rdquo;",
+        "age" : "66 years old",
+       "date" : "April 2014" },
+  "2015-03_6611_400x400_Jesse_FacultySymposium_byEdwinAguirre.jpg" :
+    { "title" : "At a Faculty Research Symposium <span class='nobold'>&mdash; photo by Edwin Aguirre</span>",
+        "age" : "66 years old",
+       "date" : "March 2015" },
+  "2015-05_6701_400x400_Jesse_Heinz57.jpg" :
+    { "title" : "With a License Plate Spotted in Newmarket, NH",
+        "age" : "67 years old",
+       "date" : "May 2015" },
+  "2015-06_6703_400x400_JesseEmma_PinballSantaCruz.jpg" :
+    {  "omit" : true,
+      "title" : "Playing Pinball with Emma &amp; Scott, Santa Cruz, CA",
+        "age" : "67 years old",
+       "date" : "June 2015" },
+  "2016-12-28_0024_400x400_Jesse_911Memorial.jpg" :
+    { "title" : "At the 9/11 Memorial, New York City",
+        "age" : "68 years old",
+       "date" : "December 2016" },
+  "2017-04-19_400x400_JesseAlisonJacqui_Birthday69.jpg" :
+    { "title" : "With Granddaughters Alison (2&half;) and Jacqui (5&half;)",
+        "age" : "69 years old",
+       "date" : "April 2017" },
+  "2017-07-10_400x400_Jesse_VietnamWall_byRachelCrawford.jpg" :
+    { "title" : "At the Vietnam Memorial <span class='nobold'>&mdash; photo by Rachel Crawford</span>",
+        "age" : "69 years old",
+       "date" : "July 2017" },
+  "2018-04-14_400x400_JLB7282c_JesseHarmonySweepstakes.jpg" :
+    { "title" : "Harmony Sweepstakes MC <span class='nobold'>&mdash; photo by Josh Blood</span>",
+        "age" : "70 years old",
+       "date" : "April 2018" },
+  "2018-07-17_7003_1200x1200_JesseJacquiAlison_CambridgeLibrary.jpg" :
+    { "title" : "Granddaughters, Cambridge Library <span class='nobold'>&mdash; photo by Evelyn McKay</span>",
+        "age" : "70 years old",
+       "date" : "July 2018" },
+  "2019-05-7101_400x400_Jesse_AnnualDaveHenchelBBQ.jpg" :
+    { "title" : "At a Fellow Barbershopper&rsquo;s Memorial Day BBQ",
+        "age" : "71 years old",
+       "date" : "May 2019" },
+  "2019-09-19_7105_400x400_JesseBryanStevenson_NewYorkCity.jpg" :
+    { "title" : "With Bryan Stevenson, New York City",
+        "age" : "71 years old",
+       "date" : "September 2019" },
+  "2020-04a-29_400x400_JesseJacqui_onZoom.jpg" :
+    { "title" : "Scratch Programming with Jacqui (8&half;) Over Zoom",
+        "age" : "72 years old",
+       "date" : "April 2020" },
+  "2021-03-02_400x400_BonnieJesse_UMV-MRC.jpg" :
+    { "title" : "Volunteering at a COVID Vaccination Clinic",
+        "age" : "72 years old",
+       "date" : "March 2021" },
+  "2021-08-12_7304_400x400_RacePoint-Maine.jpg" :
+    { "title" : "Solo Camping at Cobscook Bay, Maine",
+        "age" : "73 years old",
+       "date" : "August 2021" },
+  "2022-05a-26_7401_400x400_Jesse_MITReunionOpenMicEvent.jpg" :
+    { "title" : "MC-ing at My 52nd MIT Reunion Open Mic Event",
+        "age" : "74 years old",
+       "date" : "May 2022" },
+  "2022-05b-28_7401_400x400_Jesse_MITReunionAlumniGala.jpg" :
+    { "title" : "Enjoying My 52nd MIT Reunion Alumni Gala Dinner",
+        "age" : "74 years old",
+       "date" : "May 2022" },
+  "2023-06-10_7502_400x400_JesseAlison_CirqueDuSoleil.jpg" :
+    { "title" : "With Granddaughter Alison (8&half;) at Cirque du Soleil",
+        "age" : "75 years old",
+       "date" : "June 2023" },
+  "2023-08-08_7504_400x400_Jesse_byFrankVanRiper.jpg" :
+    { "title" : "At a Photo Master Class <span class='nobold'>&mdash; photo by Frank Van Riper</span>",
+        "age" : "75 years old",
+       "date" : "August 2023" },
+  "2024-02-20_7510_400x400_Jesse_Antarctica.jpg" :
+    { "title" : "Aboard a Zodiac in Antarctica",
+        "age" : "75 years old",
+       "date" : "February 2024" },
+  "2024-05-25_7601_400x400_Jesse_FredMartinAngela5thAnniv.jpg" :
+    { "title" : "At Friends Fred&rsquo;s &amp; Angela&rsquo;s 5th Anniversary Party",
+        "age" : "76 years old",
+       "date" : "May 2024" },
+  "2025-05a-30_7701_400x400_EdgertonLab_BalloonPop.jpg" :
+    { "title" : "Popping a Balloon in MIT&rsquo;s Edgerton Strobe Lab",
+        "age" : "77 years old",
+       "date" : "May 2025" },
+  "2025-05b-31_7701_400x400_AlanChapmanAndMe.jpg" :
+    { "title" : "At My 55th MIT Reunion with Classmate Alan Chapman",
+        "age" : "77 years old",
+       "date" : "May 2025" },
+  "2026-04a-22_7800_400x400_JesseHenry_BarMitzvah.jpg" :
+    { "title" : "With Brother Henry at My 65th Bar Mitzvah Anniversary",
+        "age" : "78 years old",
+       "date" : "April 2026" },
+  "2026-04b-22_7800_400x400_JesseBonnie_BarMitzvah.jpg" :
+    {  "omit" : true,
+      "title" : "With Bonnie at My 65th Bar Mitzvah Anniversary",
+        "age" : "78 years old",
+       "date" : "April 2026" },
+  "2026-04c-22_7800_400x400_JesseScottRussell_BarMitzvah.jpg" :
+    { "title" : "With Scott &amp; Russell at My 65th Bar Mitzvah Anniversary",
+        "age" : "78 years old",
+       "date" : "April 2026" },
+  "2026-04d-22_7800_400x400_JesseRussellFamily_BarMitzvah.jpg" :
+    {  "omit" : true,
+      "title" : "With Russell, Jacqui, Alison, &amp; Ingrid at My 65th Bar Mitzvah Anniversary",
+        "age" : "78 years old",
+       "date" : "April 2026" }
+}

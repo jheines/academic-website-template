@@ -1,11 +1,11 @@
 {
   "comment": {
-    "file": "assets/data/about.json",
-    "author": "Morgan Vickery, https://github.com/morganavickery",
-    "maintainer": "by Jesse M. Heines, jesse@jesseheines.com using Claude Code",
-    "copyright": "(c) 2026 by Jesse Heines.  All rights reserved.",
+          "file": "assets/data/about.json",
+        "author": "Morgan Vickery, https://github.com/morganavickery",
+    "maintainer": "Jesse M. Heines, jesse@jesseheines.com and Claude Code",
+     "copyright": "(c) 2026 by Jesse M. Heines.  All rights reserved.",
     "permission":  "May be copied or excerpted for educational purposes with credit to the author and maintainer.",
-    "updated": "October 28, 2026 at 7:52 AM"
+       "updated": "October 30, 2026 at 9:23 AM"
   },
   "name": "Jesse M. Heines, Ed.D.",
   "nameShort": "Jesse Heines",

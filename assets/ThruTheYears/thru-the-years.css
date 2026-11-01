@@ -1,0 +1,172 @@
+/** File: assets/ThruTheYears/thru-the-years.css
+ *  written by Claude Code, at Jesse M. Heines's request
+ *  maintained by Jesse M. Heines, jesse@jesseheines.com using Claude Code
+ *  Copyright (c) 2026 by Jesse M. Heines.  All rights reserved.  May be
+ *    freely copied or excerpted for educational purposes with credit to
+ *    the author and maintainer.
+ *  created on October 31, 2026
+ *
+ *  Styles for the "Through the Years" auto-advancing photo carousel. See
+ *  CLAUDE.md in this folder for the full feature spec. This stylesheet is
+ *  loaded only by index.html, where it replaces the template's static
+ *  profile-headshot styling in the hero section (see assets/css/index.css
+ *  for the matching removal note).
+ *
+ *  Round 2 (2026-11-01): 350px picture frame (caption column stays at
+ *  400px), 10px rounded corners, light-green arrows/hover text. The
+ *  left/right positioning of the whole carousel relative to the sidebar
+ *  and the hero text is now handled in assets/css/index.css's
+ *  .hero .container rule, not here.
+ */
+
+/* Outer placeholder: sits where the template's headshot used to be, i.e.
+   the first flex child inside .hero .container (see assets/css/index.css).
+   Its own left/right position comes from the parent's padding-left and
+   gap -- see .hero .container in assets/css/index.css. */
+#thru-the-years {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(400px, 100%);
+}
+
+/* The framed photo itself: 350x350 square (narrower than the 400px
+   caption column below it, so it's centered within that column), 1px
+   black border, 10px rounded corners, per the Round 2 spec. */
+#thru-the-years .tty-frame {
+  position: relative;
+  width: 350px;
+  max-width: 100%;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #000;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+  /* added by Claude, 2026-11-01 09:15 -- Round 3: 5px drop shadow to the
+     right and bottom, desktop only (turned off in the mobile media
+     query below). */
+  box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.45);
+}
+
+#thru-the-years .tty-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* added by Claude, 2026-11-01 09:15 -- Round 3: cross-fade between
+     pictures (paired with thru-the-years.js adding/removing tty-fading
+     at the mid-point of each advance). */
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
+}
+
+#thru-the-years .tty-photo.tty-fading {
+  opacity: 0;
+}
+
+/* "n of total" badge overlaid in the frame's bottom-right corner. */
+#thru-the-years .tty-counter {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  color: #fff;
+  font-size: 0.7rem;
+  line-height: 1;
+  padding: 3px 8px;
+  /* matches .tty-frame's border-radius, Round 2 */
+  border-top-left-radius: 10px;
+}
+
+/* Caption row: left arrow, caption text, right arrow. */
+#thru-the-years .tty-caption-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+#thru-the-years .tty-arrow-btn {
+  flex: 0 0 auto;
+  background: none;
+  border: none;
+  padding: 2px;
+  margin: 0;
+  line-height: 0;
+  cursor: pointer;
+}
+
+#thru-the-years .tty-arrow-img {
+  display: block;
+  width: 20px;
+  height: auto;
+}
+
+/* Caption text is kept small so all 3 lines fit within the 400px photo
+   width, per spec. */
+#thru-the-years .tty-caption {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: var(--contrast-color);
+}
+
+#thru-the-years .tty-title,
+#thru-the-years .tty-age {
+  font-weight: bold;
+}
+
+/* Lets an individual title (e.g. the family-photo caption in the data
+   file) de-emphasize part of itself with <span class="nobold">. */
+#thru-the-years .tty-title .nobold {
+  font-weight: normal;
+}
+
+#thru-the-years .tty-date {
+  font-weight: normal;
+}
+
+#thru-the-years .tty-hover-note {
+  font-style: italic;
+  /* removed by Claude, 2026-11-01 09:15 -- Round 3: now boldface, see below
+  font-weight: normal;
+  */
+  /* added by Claude, 2026-11-01 09:15 -- Round 3: bold + updated light
+     green shade (was rgb(150, 211, 95), matching the Round 2 arrow color) */
+  font-weight: bold;
+  color: rgb(159, 214, 109);
+}
+
+/* Applied while the mouse is over the photo, pausing auto-advance. */
+#thru-the-years .tty-hover-note.tty-paused {
+  font-weight: bold;
+  /* removed by Claude, 2026-11-01 09:15 -- Round 3: replaced with yellow,
+     to match the Round 3 paused-arrow color change
+  color: #d00000;
+  */
+  color: rgb(245, 236, 0); /* added by Claude, 2026-11-01 09:15 */
+}
+
+@media (max-width: 1200px) {
+  #thru-the-years {
+    margin: 0 auto 15px auto;
+    /* added by Claude, 2026-11-01 09:15 -- Round 3: wider than the
+       350px/400px desktop sizing, so the caption's first line (the
+       title) has room for longer captions without wrapping. The 350px
+       photo frame stays fixed-width and centers itself (margin: 0 auto)
+       inside this wider column. */
+    width: min(92vw, 600px);
+  }
+
+  /* added by Claude, 2026-11-01 09:15 -- Round 3: the 5px drop shadow
+     is desktop-only, per Jesse's request. */
+  #thru-the-years .tty-frame {
+    box-shadow: none;
+  }
+}

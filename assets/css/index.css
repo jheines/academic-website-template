@@ -32,6 +32,45 @@
   /* Overlay above the image */
 }
 
+/* removed by Claude, 2026-11-01 -- Bootstrap's .container class centers
+   itself (auto margins + a max-width) and this rule's justify-content:
+   center + left: 50px centered the whole row on top of that, which is
+   why the hero text drifted away from the carousel instead of sitting
+   left-justified right next to it (Round 2 change request)
+.hero .container {
+  position: relative;
+  z-index: 3;
+  color: var(--contrast-color);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  left: 50px;
+}
+*/
+/* added by Claude, 2026-11-01 09:15 -- Round 3: global.css's generic
+   .hero.primary rule (used only by this page's hero, #hero-home) adds
+   its own 40px padding-left, which was stacking with the 10px below to
+   produce the ~50px gap Jesse measured instead of the intended 10px.
+   Zero it out here so .hero .container's own padding-left (just below)
+   is the only thing controlling the sidebar-to-carousel gap, on both
+   desktop and mobile. */
+#hero-home.primary {
+  padding-left: 0;
+}
+
+/* added by Claude, 2026-11-01 -- Round 2: pin the row flush against
+   .main's left edge (which already starts right at the nav sidebar's
+   border) with exactly 20px of padding, so the carousel sits 20px from
+   the sidebar and the text sits 10px to the right of the carousel (that
+   second gap is the flex "gap" below, not padding). max-width/margin
+   override Bootstrap's own centered .container sizing.
+   -- updated by Claude, 2026-11-01 09:15, Round 3: 10px -> 20px. The
+   real previous gap was ~50px (see the .hero.primary override above),
+   not the intended 10px, so once that extra padding was removed Jesse
+   asked for 20px instead of going back to 10px. */
 .hero .container {
   position: relative;
   z-index: 3;
@@ -42,32 +81,38 @@
   flex-wrap: wrap;
   /* Allow items to wrap on smaller screens */
   align-items: center;
-  justify-content: center;
-  gap: 20px;
-  /* Add spacing between elements */
-  text-align: center;
-  left: 50px;
+  justify-content: flex-start;
+  gap: 10px;
+  text-align: left;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 20px;
 }
 
+/* removed by Claude, 2026-10-31 11:05 -- the static circular headshot was
+   replaced by the "Through the Years" photo carousel (see
+   assets/ThruTheYears/CLAUDE.md and assets/ThruTheYears/thru-the-years.css)
+   -- NOTE: CSS comments don't nest, so the line comments this dead code
+   used to contain were stripped out here on 2026-11-01; they were
+   accidentally closing this very comment block early, leaving
+   "max-width: 250px; text-align: center;" etc. as live, broken CSS.
 .hero .headshot-container {
   flex: 0 0 auto;
-  /* Ensure the headshot does not grow or shrink */
   max-width: 250px;
-  /* Limit the width of the headshot */
   text-align: center;
 }
 
 .hero .headshot-container img {
   width: 100%;
-  /* Ensure the image scales within its container */
   height: auto;
   border: 8px solid color-mix(in srgb, var(--default-color), transparent 85%);
   object-fit: cover;
   border-radius: 50%;
-  /* Make it circular if needed */
   border: 8px solid color-mix(in srgb, var(--contrast-color), transparent 85%);
 
 }
+*/
 
 .hero .text-container {
   flex: 1;
@@ -113,13 +158,30 @@
     text-align: center;
   }
 
+  /* removed by Claude, 2026-10-31 11:05 -- see removal note above; the
+     carousel's own mobile sizing lives in thru-the-years.css
+     (line comment removed 2026-11-01: CSS comments don't nest, and it
+     was closing this block early, same bug as the other removed
+     .hero .headshot-container rule above)
   .hero .headshot-container {
     max-width: 150px;
-    /* Adjust headshot size on smaller screens */
     margin-bottom: 15px;
   }
+  */
+    /* removed by Claude, 2026-11-01 -- .hero .container no longer sets
+       "left" (replaced by padding-left, see the Round 2 rule above), so
+       there's nothing left to reset here
     .hero .container {
       left: 0px;
+    }
+    */
+    /* added by Claude, 2026-11-01 -- on narrow screens, go back to a
+       centered, stacked layout instead of the desktop flush-left one */
+    .hero .container {
+      justify-content: center;
+      text-align: center;
+      padding-left: 0;
+      gap: 20px;
     }
 
   .hero h2 {
