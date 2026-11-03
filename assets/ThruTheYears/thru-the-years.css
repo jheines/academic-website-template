@@ -279,9 +279,23 @@
        100% of the row and triggers horizontal scrolling. */
     width: min(400px, calc(100% - 10px));
   }
+}
 
-  /* added by Claude, 2026-11-01 09:15 -- Round 3: the 5px drop shadow
-     is desktop-only, per Jesse's request. */
+/* removed by Claude, 2026-11-03 12:05 -- Round 7: this was removing the
+   drop shadow any time the browser window narrowed past 1200px, which
+   also fires on an ordinary desktop/laptop window, not just phones --
+   Jesse noticed the shadow vanishing while just resizing his desktop
+   browser. Moved below to the X-Small (phone-width) breakpoint only,
+   so it survives every "middle" breakpoint and only drops on an actual
+   phone-size screen.
+@media (max-width: 1200px) {
+  #thru-the-years .tty-frame {
+    box-shadow: none;
+  }
+}
+*/
+/* added by Claude, 2026-11-03 12:05 -- Round 7 */
+@media (max-width: 576px) {
   #thru-the-years .tty-frame {
     box-shadow: none;
   }
