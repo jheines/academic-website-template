@@ -133,3 +133,9 @@ updated by JMH on November 3, 2026 at 11:20 AM
 - The main problem that remains with the carousel DIV is that it is still not centered on the iPhone. In addition, in the middle breakpoints on the desktop the left arrow and age menu bar are flush with the left-hand margin of `section id="hero-home"`. I would prefer that there is always at least 10px margin at the left of the carousel regardless of the breakpoint size. I'm not sure what that margin should be on the iPhone, but perhaps we could try 10px to see if that works there, too.
 
 - Given everything that we've added to the carousel DIV, we now need to increase the vertical size of the `hero-home` section both on the desktop and iPhone versions. I think that adding 10px to whatever that section's current height is now and centering everything vertically (which I think is already done) should give us just a bit of space at the top and bottom of the carousel and make it look a bit cleaner.
+
+# Changes: Round 7
+
+- I just noticed one small problem. In the Bootstrap `md` breakpoint, the text box is under the carousel, which is fine, but the text is hard against the left edge of the full `div class="container aos-init aos-animate" ...` main panel.  Please give the text a 10px left margin or padding in that breakpoint.
+
+- Also, you will notice a file named `Bootstrap-Breakpoint-Badge.html` in the assets folder. That's just a utility file -- that Claude wrote! :) -- that allows me to know which Bootstrap breakpoint I'm looking at. You can ignore that file and we will not include it when we do git commits, just like we do with `*.bak` files.

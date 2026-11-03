@@ -192,6 +192,16 @@
       gap: 20px;
     }
 
+  /* added by Claude, 2026-11-03 17:28 -- Round 7: .text-container's own
+     text-align: left (set unconditionally in the base rule above) left
+     the text flush against .container's left edge once it stacked under
+     the carousel at narrower widths, e.g. Bootstrap's "md" breakpoint.
+     margin-left (not padding) so this matches, rather than stacks with,
+     the X-Small override just below, which wins at widths <= 576px. */
+  .hero .text-container {
+    margin-left: 10px;
+  }
+
   .hero h2 {
     font-size: 28px;
     /* Adjust for smaller screens */
