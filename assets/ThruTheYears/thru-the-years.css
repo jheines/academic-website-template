@@ -46,24 +46,56 @@
   background: #000;
   /* added by Claude, 2026-11-01 09:15 -- Round 3: 5px drop shadow to the
      right and bottom, desktop only (turned off in the mobile media
-     query below). */
-  box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.45);
+     query below).
+     -- updated by Claude, 2026-11-03 10:30, Round 4: a single offset
+     shadow read as a flat solid-color block, not a "drop shadow", so
+     this now stacks five 1px-apart offset shadows at decreasing opacity
+     to approximate a gradient fading from black (closest to the frame)
+     out to transparent (5px out). */
+  box-shadow:
+    1px 1px 0 0 rgba(0, 0, 0, 0.45),
+    2px 2px 0 0 rgba(0, 0, 0, 0.36),
+    3px 3px 0 0 rgba(0, 0, 0, 0.27),
+    4px 4px 0 0 rgba(0, 0, 0, 0.18),
+    5px 5px 0 0 rgba(0, 0, 0, 0.09);
 }
 
+/* removed by Claude, 2026-11-03 10:30 -- Round 4: this single <img>
+   fade-out-then-swap-then-fade-in was a fade THROUGH black, not a true
+   crossfade. Replaced below with two stacked <img> layers (both added
+   in thru-the-years.js's buildDom()) that fade in/out at the same time.
 #thru-the-years .tty-photo {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* added by Claude, 2026-11-01 09:15 -- Round 3: cross-fade between
-     pictures (paired with thru-the-years.js adding/removing tty-fading
-     at the mid-point of each advance). */
   opacity: 1;
   transition: opacity 0.25s ease-in-out;
 }
 
 #thru-the-years .tty-photo.tty-fading {
   opacity: 0;
+}
+*/
+/* added by Claude, 2026-11-03 10:30 -- Round 4: two of these are stacked
+   directly on top of each other (absolutely positioned within
+   .tty-frame, which is already position: relative), so the incoming
+   picture can fade in while the outgoing one fades out at the same
+   time -- a true crossfade. thru-the-years.js toggles tty-active on
+   whichever layer should currently be visible. */
+#thru-the-years .tty-photo {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#thru-the-years .tty-photo.tty-active {
+  opacity: 1;
 }
 
 /* "n of total" badge overlaid in the frame's bottom-right corner. */
@@ -87,7 +119,12 @@
   justify-content: center;
   gap: 10px;
   width: 100%;
+  /* removed by Claude, 2026-11-03 10:30 -- Round 4: this 8px gap from
+     the frame now belongs to .tty-title below, which moved in front of
+     this row (title is no longer nested inside .tty-caption)
   margin-top: 8px;
+  */
+  margin-top: 2px; /* added by Claude, 2026-11-03 10:30 */
 }
 
 #thru-the-years .tty-arrow-btn {
@@ -117,7 +154,21 @@
   color: var(--contrast-color);
 }
 
-#thru-the-years .tty-title,
+/* added by Claude, 2026-11-03 10:30 -- Round 4: .tty-title moved out of
+   .tty-caption (see thru-the-years.js's buildDom()) so it can be as
+   wide as the whole .tty-caption-row below it (arrows included), not
+   just the narrower .tty-caption column between the arrows -- titles
+   were wrapping onto a 2nd line otherwise. */
+#thru-the-years .tty-title {
+  width: 100%;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: var(--contrast-color);
+  font-weight: bold;
+  margin-top: 8px;
+}
+
 #thru-the-years .tty-age {
   font-weight: bold;
 }
@@ -153,15 +204,80 @@
   color: rgb(245, 236, 0); /* added by Claude, 2026-11-01 09:15 */
 }
 
+/* added by Claude, 2026-11-03 10:30 -- Round 4: "Age Links" jump menu,
+   built from the optional "menu": <integer> entries in
+   ThruTheYears-CaptionList.json. Bar background matches the normal
+   (non-paused) .tty-hover-note color, per spec; only rendered at all
+   when at least one entry has a "menu" value (see
+   thru-the-years.js's buildDom()).
+   -- updated by Claude, 2026-11-03 11:15, Round 5: the label and the
+   numbers are now one flat flex row (no nested .tty-menu-items wrapper
+   -- see thru-the-years.js's buildDom()), all spaced out together by
+   this single justify-content: space-between, so the label-to-"1" gap
+   matches the gap between numbers instead of being its own fixed 8px. */
+#thru-the-years .tty-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  margin-top: 6px;
+  padding: 3px 8px;
+  background: rgb(159, 214, 109);
+  border-radius: 4px;
+}
+
+#thru-the-years .tty-menu-label {
+  flex: 0 0 auto;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 0.7rem;
+  /* removed by Claude, 2026-11-03 11:15 -- Round 5: changed to white
+  color: #000;
+  */
+  color: #fff; /* added by Claude, 2026-11-03 11:15 */
+}
+
+#thru-the-years .tty-menu-item {
+  flex: 0 0 auto;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
 @media (max-width: 1200px) {
   #thru-the-years {
+    /* removed by Claude, 2026-11-03 11:40 -- Round 6: "margin: 0 auto"
+       was meant to center this item within its flex line, but
+       .text-container's flex: 1 (assets/css/index.css) always grows to
+       claim whatever space is left over on a shared line, so the auto
+       margins never actually had any space to distribute -- the
+       carousel kept landing flush against the left edge instead, both
+       at "middle" desktop breakpoints and on the iPhone.
     margin: 0 auto 15px auto;
-    /* added by Claude, 2026-11-01 09:15 -- Round 3: wider than the
-       350px/400px desktop sizing, so the caption's first line (the
-       title) has room for longer captions without wrapping. The 350px
-       photo frame stays fixed-width and centers itself (margin: 0 auto)
-       inside this wider column. */
+    */
+    margin: 0 0 15px 10px; /* added by Claude, 2026-11-03 11:40 -- Round 6: guaranteed 10px left margin instead, regardless of how much of the row .text-container's flex: 1 claims */
+    /* removed by Claude, 2026-11-03 11:15 -- Round 5: Jesse asked that
+       #thru-the-years (and the caption/arrows/menu that size themselves
+       off of it) stay a CONSTANT width across every Bootstrap
+       breakpoint, instead of jumping wider here, so the hero text
+       wouldn't have to keep re-wrapping as the carousel's width jumped
+       around. The Round 3 problem this solved -- long captions wrapping
+       -- is now handled a different way (Round 4's full-width
+       .tty-title), so it's safe to drop; the base rule's
+       width: min(400px, 100%) applies at every breakpoint now.
     width: min(92vw, 600px);
+    */
+    /* added by Claude, 2026-11-03 11:40 -- Round 6: subtract the new
+       10px left margin above so #thru-the-years never totals more than
+       100% of the row and triggers horizontal scrolling. */
+    width: min(400px, calc(100% - 10px));
   }
 
   /* added by Claude, 2026-11-01 09:15 -- Round 3: the 5px drop shadow

@@ -83,7 +83,53 @@
 
 * Replace https://jesseheines.com/~heines/images/arrows/LucidaArrows193-Left-Red_transparent.png with https://jesseheines.com/~heines/images/arrows/LucidaArrows193-Left-Yellow_transparent.png.
 - Replace https://jesseheines.com/~heines/images/arrows/LucidaArrows193-Right-Red_transparent.png with https://jesseheines.com/~heines/images/arrows/LucidaArrows193-Right-Yellow_transparent.png.
+
 - Change the "Move the mouse off the picture to resume auto-advancing." text (including adding a period at the end) to boldface and change its color to RGB( 245, 236, 0 ).
+
 - Please add a 5-pixel drop shadow to the right and bottom of the picture frame on the desktop version.
+
 - I would like the pictures to flow into one another more smoothly. Can you make the current picture fade out while the next one fades in over perhaps half a second?
+
 - And finally for this set of changes, can you make the first line of the caption wider in the mobile version so that the text doesn't wrap for longer captions
+
+# Changes: Round 4
+
+*updated by JMH on November 3, 2026 at 9:54 AM*
+
+- In the `hero-home` section, on the iPhone, the 10-pixel separator between the carousel container and the text container seems to be at the right of the carousel. This makes the carousel off-center in that small format. In addition, it makes the text container flush with the left-hand margin of the iPhone. The spacing is fine in the desktop version, so on `X-Small` devices please associate the 10-pixel separator with the text container, not the carousel container.
+
+- The drop shadow that you put on `img class="tty-photo"` is the right size, but it's a solid color. Please make this a gradient from black to fading out.
+
+- The transition between photos that you implemented is a fade-through-black, not a true crossfade. Can you make the new picture fade in at the same time that the old one is fading out? I know that jQuery can do that, so I'm thinking that it can be done with some combination of JavaScript and CSS.
+
+- The `div class="tty-title"` has to be a wider because some title are wrapping. I think that if you make it as wide as `div="tty-caption-row"` it'll be good. Please try that width.
+
+- On the iPhone, that is, on `X-Small` devices, we need to change "Hover over a picture to pause auto-advancing." to "Tap a picture to pause auto-advancing." Likewise, we neet to change "Move the mouse off the picture to resume auto-advancing." to "Tap the picture to resume auto-advancing."
+
+- You will notice that I added a `"menu" : integer` name:value pair to some of the entries in the ThruTheYears-CaptionList.json file. The purpose of these entries is to created a menu below the picture captions containing these integers. When the user clicks one of the integers in the menu, the carousel should jump to that picture and then continuing running normally from there. The menu itself should be a horizontal bar in the same color as the instructional text just above it with the numbers spaced evenly across that bar. The numbers should be preceded by the text: ***Age Links:*** in boldface italics. The numbers themselves should also be in boldface white text.
+
+- More changes and page additions are to come, but I think that this is enough for now!
+
+# Changes: Round 5
+
+*updated by JMH on November 3, 2026 at 10:52 AM*
+
+- Nice job. Really. I love the crossfade now. And the captions don't wrap anymore. Yay! :) Just a few more tweaks to this aspect of the website and then we're ready to move on to other aspects of it.
+
+- Please make the ***Age Links:*** text white and please make the space between that text and the `1` the same as the space between the numbers.
+
+- On the iPhone, tapping a picture indeed pauses the auto-advancing, but tapping the picture a second time does not resume auto-advancing. Please fix that.
+
+- When I resize the browser on my laptop to step through the various Bootstrap breakpoints, the carousel, that is, `div id="thru-the-years"` gets much too wide. Please keep the width of the carousel and its associated captions and arrows constant throughout all breakpoints. This will prevent the text in the `hero` section from having to wrap excessively.
+
+- One last thing: I would like you to please always print the clock time that you started processing and the clock time that you ended processing and state how many actual minutes elapsed between these two events. Please correct me if I'm wrong, but when you display a message at the end of a processing session such as "Brewed for 6m 14s" that's actually your processing time, not clock time, right? If I'm correct, I'd like to know the actual clock time, too.
+
+# Changes: Round 6
+
+updated by JMH on November 3, 2026 at 11:20 AM
+
+- OK, a couple of tiny changes and we'll commit everything and move on to another aspet of the website.
+
+- The main problem that remains with the carousel DIV is that it is still not centered on the iPhone. In addition, in the middle breakpoints on the desktop the left arrow and age menu bar are flush with the left-hand margin of `section id="hero-home"`. I would prefer that there is always at least 10px margin at the left of the carousel regardless of the breakpoint size. I'm not sure what that margin should be on the iPhone, but perhaps we could try 10px to see if that works there, too.
+
+- Given everything that we've added to the carousel DIV, we now need to increase the vertical size of the `hero-home` section both on the desktop and iPhone versions. I think that adding 10px to whatever that section's current height is now and centering everything vertically (which I think is already done) should give us just a bit of space at the top and bottom of the carousel and make it look a bit cleaner.

@@ -59,6 +59,14 @@
    desktop and mobile. */
 #hero-home.primary {
   padding-left: 0;
+  /* added by Claude, 2026-11-03 11:40 -- Round 6: everything added to
+     the carousel since this hero was first built had left it feeling a
+     bit cramped top-to-bottom, on both desktop and iPhone. 10px taller
+     than global.css's .hero.primary min-height: 50vh; .hero's own
+     align-items: center + justify-content: center (global.css) already
+     centers the row within that height, so this alone opens up a
+     little breathing room above and below the carousel. */
+  min-height: calc(50vh + 10px);
 }
 
 /* added by Claude, 2026-11-01 -- Round 2: pin the row flush against
@@ -192,6 +200,26 @@
   .hero p {
     font-size: 18px;
     /* Adjust for smaller screens */
+  }
+}
+
+/* added by Claude, 2026-11-03 10:30 -- Round 4: on X-Small (phone)
+   screens, .hero .container's own flex row (not yet column -- that only
+   happens to .hero itself, above, at the 1200px breakpoint) can still
+   have the carousel and .text-container on the same line before
+   .text-container wraps. The shared "gap" above acts as both row-gap
+   and column-gap, so it was adding its 10px to the right of the
+   carousel -- throwing off centering -- instead of acting as a left
+   offset on the text. Zero it here and give that 10px to
+   .text-container directly instead, so the carousel can center on its
+   own regardless of whether .text-container wraps onto its own line. */
+@media (max-width: 576px) {
+  .hero .container {
+    gap: 0;
+  }
+
+  .hero .text-container {
+    margin-left: 10px;
   }
 }
 

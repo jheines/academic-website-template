@@ -4,14 +4,15 @@
         "author" : "Jesse M. Heines, https://jesseheines.com",
     "maintainer" : "Jesse M. Heines, jesse@jesseheines.com and Claude Code",
      "copyright" : "(c) 2026 by Jesse M. Heines.  All rights reserved.",
-    "permission" :  "May be copied or excerpted for educational purposes with credit to the author and maintainer.",
-       "updated" : "October 30, 2026 at 10:08 PM",
+    "permission" : "May be copied or excerpted for educational purposes with credit to the author and maintainer.",
+       "updated" : "November 03, 2026 at 10:20 AM",
      "validator" : "https://jsonlint.com/"
   },
   "1948-10_0006_400x400_Jesse_TowelOnHead.jpg" :
     { "title" : "In My First Year of Life",
         "age" : "6 months old",
-       "date" : "October 1948" },
+       "date" : "October 1948",
+       "menu" : 1 },
   "1949-10_0106_400x400_Jesse_WithBunny.jpg" :
     { "title" : "With My Favorite Bunny",
         "age" : "18 months old",
@@ -55,7 +56,8 @@
   "1958-06_1002_400x400_JesseHenry_PlayingTrumpetWithHenry.jpg" :
     { "title" : "Playing Trumpet with My Brother Henry on Saxophone",
         "age" : "10 years old",
-       "date" : "June 1958" },
+       "date" : "June 1958",
+       "menu" : 10 },
   "1959-11_1107_400x400_Jesse_StringTie.jpg" :
     { "title" : "In 6th Grade",
         "age" : "11 years old",
@@ -103,7 +105,8 @@
   "1968-09_2005_400x400_Jesse_JuniorInMITBakerHouse.jpg" :
     { "title" : "In Baker House in My Junior Year at MIT",
         "age" : "20 years old",
-       "date" : "September 1968" },
+       "date" : "September 1968",
+       "menu" : 20 },
   "1969-06_2102_400x400_Jesse_IsraelKibbutz.jpg" :
     { "title" : "On a Kibbutz in Israel After My Junior Year at MIT",
         "age" : "21 years old",
@@ -159,7 +162,8 @@
   "1978-07_4003_400x400_JesseMamMom_18CourtlandDrive.jpg" :
     { "title" : "With My Mother-In-Law and My Mother",
         "age" : "30 years old",
-       "date" : "July 1978" },
+       "date" : "July 1978",
+       "menu" : 30 },
   "1979-05_3101_400x400_Jesse_EdDGradParty.jpg" :
     { "title" : "At My Doctoral Degree Graduation Party",
         "age" : "31 years old",
@@ -207,7 +211,8 @@
   "1988-06_4002_400x400_JesseScott_JasonHershmanBarMitzvah.jpg" :
     { "title" : "With My Son Scott, Cherry Hill, NJ",
         "age" : "40 years old",
-       "date" : "June 1988" },
+       "date" : "June 1988",
+       "menu" : 40 },
   "1989-05_4101_400x400_JesseDorothy_AtHenryKatherineWedding.jpg" :
     { "title" : "With My Mother, San Francisco Bay, CA",
         "age" : "41 years old",
@@ -255,7 +260,8 @@
   "1998a-04_5000_400x400_Jesse_UWEasterEggHunt.jpg" :
     { "title" : "Underwater Easter Egg Hunt, Rockport, MA",
         "age" : "50 years old",
-       "date" : "April 1998" },
+       "date" : "April 1998",
+       "menu" : 50 },
   "1999-11_5107_400x400_Jesse_AtRigasApartment.jpg" :
     { "title" : "At the Home of Rigas Rigopoulos, Athens, Greece",
         "age" : "51 years old",
@@ -308,7 +314,8 @@
   "2008-09_6005_400x400_Jesse_RussellIngridWedding.jpg" :
     { "title" : "At My Son Russell&rsquo;s Wedding, Cambridge, MA",
         "age" : "60 years old",
-       "date" : "September 2008" },
+       "date" : "September 2008",
+       "menu" : 60 },
   "2009-05_6101_400x400_JesseMarty_AtGraduation.jpg" :
     { "title" : "With Then Chancellor Marty Meehan at Graduation",
         "age" : "61 years old",
@@ -365,7 +372,8 @@
   "2018-04-14_400x400_JLB7282c_JesseHarmonySweepstakes.jpg" :
     { "title" : "Harmony Sweepstakes MC <span class='nobold'>&mdash; photo by Josh Blood</span>",
         "age" : "70 years old",
-       "date" : "April 2018" },
+       "date" : "April 2018",
+       "menu" : 70 },
   "2018-07-17_7003_1200x1200_JesseJacquiAlison_CambridgeLibrary.jpg" :
     { "title" : "Granddaughters, Cambridge Library <span class='nobold'>&mdash; photo by Evelyn McKay</span>",
         "age" : "70 years old",

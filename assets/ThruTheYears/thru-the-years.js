@@ -39,19 +39,44 @@
   };
   var CAPTION_LIST_URL = "assets/ThruTheYears/ThruTheYears-CaptionList.json";
   var ADVANCE_MS = 3000;
-  // added by Claude, 2026-11-01 09:15 -- Round 3: half of the photo's
-  // cross-fade (fade-out, then swap+fade-in), so the full fade cycle is
-  // about half a second, matching thru-the-years.css's .tty-photo
-  // transition duration.
-  var FADE_MS = 250;
-  var HOVER_NOTE_NORMAL = "Hover over a picture to pause auto-advancing.";
-  var HOVER_NOTE_PAUSED = "Move the mouse off the picture to resume auto-advancing.";
+  // removed by Claude, 2026-11-03 10:30 -- Round 4: no longer needed now
+  // that both photo layers fade via CSS at the same time (true
+  // crossfade) instead of this script timing a sequential fade-out,
+  // then swap, then fade-in.
+  // var FADE_MS = 250;
+  // added by Claude, 2026-11-03 10:30 -- Round 4: X-Small (phone) wording
+  // for the hover-note, since there's no mouse to hover with there.
+  // Matches the "X-Small" breakpoint used in assets/css/index.css's
+  // Round 4 hero-spacing override.
+  var X_SMALL_QUERY = "(max-width: 576px)";
+  var HOVER_NOTE_NORMAL_DESKTOP = "Hover over a picture to pause auto-advancing.";
+  var HOVER_NOTE_PAUSED_DESKTOP = "Move the mouse off the picture to resume auto-advancing.";
+  var HOVER_NOTE_NORMAL_MOBILE = "Tap a picture to pause auto-advancing.";
+  var HOVER_NOTE_PAUSED_MOBILE = "Tap the picture to resume auto-advancing.";
 
-  var photos = [];   // [{ file, title, age, date }, ...]
+  var photos = [];     // [{ file, title, age, date, menu }, ...]
+  // added by Claude, 2026-11-03 10:30 -- Round 4: [{ label, index }, ...],
+  // built from photos' optional "menu" field, for the Age Links menu.
+  var menuItems = [];
   var index = 0;
+  // added by Claude, 2026-11-03 10:30 -- Round 4: which of the two
+  // stacked .tty-photo <img> layers (see thru-the-years.css) is
+  // currently the visible one.
+  var activeLayer = 0;
   var timerId = null;
   var paused = false;
   var container = null;
+
+  // added by Claude, 2026-11-03 10:30 -- Round 4
+  function isXSmall() {
+    return window.matchMedia(X_SMALL_QUERY).matches;
+  }
+  function hoverNoteNormal() {
+    return isXSmall() ? HOVER_NOTE_NORMAL_MOBILE : HOVER_NOTE_NORMAL_DESKTOP;
+  }
+  function hoverNotePaused() {
+    return isXSmall() ? HOVER_NOTE_PAUSED_MOBILE : HOVER_NOTE_PAUSED_DESKTOP;
+  }
 
   document.addEventListener("DOMContentLoaded", init);
 
@@ -75,10 +100,20 @@
         .filter(function (key) { return !data[key] || data[key].omit !== true; })
         .map(function (file) {
           var entry = data[file] || {};
-          return { file: file, title: entry.title, age: entry.age, date: entry.date };
+          // added by Claude, 2026-11-03 10:30 -- Round 4: carry the
+          // optional "menu" field through so the Age Links menu below
+          // can look up each entry's position in the final (post-omit)
+          // photos array.
+          return { file: file, title: entry.title, age: entry.age, date: entry.date, menu: entry.menu };
         });
 
       if (!photos.length) return;
+
+      // added by Claude, 2026-11-03 10:30 -- Round 4: Age Links menu
+      // entries, in the same order as photos (already chronological).
+      menuItems = photos
+        .map(function (photo, i) { return { label: photo.menu, index: i }; })
+        .filter(function (item) { return typeof item.label === "number"; });
 
       buildDom();
       render();
@@ -89,26 +124,55 @@
   }
 
   function buildDom() {
+    // added by Claude, 2026-11-03 10:30 -- Round 4: "Age Links" numbers,
+    // same color as the hover-note text, spaced evenly across their own
+    // bar below the caption. Omitted entirely when there are none.
+    // updated by Claude, 2026-11-03 11:15 -- Round 5: label and numbers
+    // are now flat siblings (no .tty-menu-items wrapper) so a single
+    // justify-content: space-between in thru-the-years.css spaces all
+    // of them, including the label-to-"1" gap, evenly.
+    var menuHtml = "";
+    if (menuItems.length) {
+      menuHtml =
+        '<div class="tty-menu">' +
+          '<span class="tty-menu-label">Age Links:</span>' +
+          menuItems.map(function (item) {
+            return '<button type="button" class="tty-menu-item" data-index="' +
+              item.index + '">' + item.label + "</button>";
+          }).join("") +
+        "</div>";
+    }
+
     container.innerHTML =
       '<div class="tty-frame">' +
+        // added by Claude, 2026-11-03 10:30 -- Round 4: two stacked
+        // <img> layers (see .tty-photo / .tty-photo.tty-active in
+        // thru-the-years.css) so the next picture can fade in while the
+        // current one fades out at the same time -- a true crossfade.
+        '<img class="tty-photo" alt="">' +
         '<img class="tty-photo" alt="">' +
         '<div class="tty-counter" aria-hidden="true"></div>' +
       "</div>" +
+      // moved by Claude, 2026-11-03 10:30 -- Round 4: .tty-title is now
+      // a sibling of .tty-caption-row, not nested inside .tty-caption,
+      // so it can be as wide as the whole row (arrows included) instead
+      // of just the narrower column between them.
+      '<div class="tty-title"></div>' +
       '<div class="tty-caption-row">' +
         '<button type="button" class="tty-arrow-btn tty-arrow-left" aria-label="Previous picture">' +
           '<img class="tty-arrow-img" alt="">' +
         "</button>" +
         '<div class="tty-caption">' +
-          '<div class="tty-title"></div>' +
           '<div class="tty-age-date">' +
             '<span class="tty-age"></span>&nbsp;&nbsp;<span class="tty-date"></span>' +
           "</div>" +
-          '<div class="tty-hover-note">' + HOVER_NOTE_NORMAL + "</div>" +
+          '<div class="tty-hover-note"></div>' +
         "</div>" +
         '<button type="button" class="tty-arrow-btn tty-arrow-right" aria-label="Next picture">' +
           '<img class="tty-arrow-img" alt="">' +
         "</button>" +
-      "</div>";
+      "</div>" +
+      menuHtml;
 
     var frame = container.querySelector(".tty-frame");
     var leftArrowImg = container.querySelector(".tty-arrow-left .tty-arrow-img");
@@ -116,6 +180,10 @@
 
     leftArrowImg.src = ARROWS.left;
     rightArrowImg.src = ARROWS.right;
+    // added by Claude, 2026-11-03 10:30 -- Round 4: show the correct
+    // desktop/X-Small wording as soon as the DOM exists, instead of
+    // waiting for the first hover/pause.
+    container.querySelector(".tty-hover-note").textContent = hoverNoteNormal();
 
     container.querySelector(".tty-arrow-left").addEventListener("click", function () {
       goTo(index - 1);
@@ -126,10 +194,35 @@
       resetTimer();
     });
 
+    // added by Claude, 2026-11-03 10:30 -- Round 4: clicking an Age
+    // Links number jumps straight to that picture and keeps
+    // auto-advancing normally from there, same as the arrow buttons.
+    var menu = container.querySelector(".tty-menu");
+    if (menu) {
+      menu.addEventListener("click", function (e) {
+        var btn = e.target.closest(".tty-menu-item");
+        if (!btn) return;
+        goTo(parseInt(btn.getAttribute("data-index"), 10));
+        resetTimer();
+      });
+    }
+
     // "When the user hovers over any picture" -- scoped to the frame
     // (the photo + its counter overlay), not the caption row below it.
     frame.addEventListener("mouseenter", function () { setPaused(true); });
     frame.addEventListener("mouseleave", function () { setPaused(false); });
+
+    // added by Claude, 2026-11-03 11:15 -- Round 5: on X-Small (phone)
+    // devices there's no mouse to "leave", so a 1st tap fires the
+    // mouseenter above (pausing), but nothing ever fires mouseleave --
+    // tapping again did nothing. iOS also only sends this element a
+    // real click starting on that 2nd tap (the 1st tap just simulates
+    // hover), so toggling pause here on click, X-Small only, fixes
+    // resume without double-toggling the 1st tap's mouseenter-driven
+    // pause on desktop/tablet.
+    frame.addEventListener("click", function () {
+      if (isXSmall()) setPaused(!paused);
+    });
   }
 
   function setPaused(isPaused) {
@@ -142,7 +235,10 @@
     leftArrowImg.src = isPaused ? ARROWS.leftPaused : ARROWS.left;
     rightArrowImg.src = isPaused ? ARROWS.rightPaused : ARROWS.right;
 
-    note.textContent = isPaused ? HOVER_NOTE_PAUSED : HOVER_NOTE_NORMAL;
+    // updated by Claude, 2026-11-03 10:30 -- Round 4: wording now
+    // depends on screen size (see hoverNoteNormal()/hoverNotePaused()
+    // above).
+    note.textContent = isPaused ? hoverNotePaused() : hoverNoteNormal();
     note.classList.toggle("tty-paused", isPaused);
   }
 
@@ -152,32 +248,34 @@
     render();
   }
 
-  // added by Claude, 2026-11-01 09:15 -- Round 3: cross-fade between
-  // pictures instead of an abrupt swap. Fades the current photo out,
-  // swaps its src/caption while invisible, then fades the new one in --
-  // the actual opacity transition is CSS (see .tty-photo /
-  // .tty-photo.tty-fading in thru-the-years.css); this just times the
-  // swap to happen at the mid-point, so the whole cycle is ~2 * FADE_MS.
+  // updated by Claude, 2026-11-03 10:30 -- Round 4: true crossfade. The
+  // next picture is loaded into whichever of the two stacked <img>
+  // layers is currently hidden, then both layers' tty-active classes
+  // flip at the same instant, so CSS fades the old one out and the new
+  // one in at the same time (see .tty-photo / .tty-photo.tty-active in
+  // thru-the-years.css) instead of Round 3's sequential fade-out,
+  // swap-while-invisible, fade-in.
   function render() {
     var photo = photos[index];
-    var img = container.querySelector(".tty-photo");
+    var imgs = container.querySelectorAll(".tty-photo");
+    var outgoing = imgs[activeLayer];
+    var incoming = imgs[1 - activeLayer];
 
-    img.classList.add("tty-fading");
-    setTimeout(function () {
-      img.src = IMAGE_BASE_URL + photo.file;
-      img.alt = photo.title ? stripHtml(photo.title) : "";
+    incoming.src = IMAGE_BASE_URL + photo.file;
+    incoming.alt = photo.title ? stripHtml(photo.title) : "";
 
-      // title supports simple inline HTML (e.g. <em>, <span class="nobold">,
-      // named/numeric entities) -- see the family-photo entry in
-      // ThruTheYears-CaptionList.json -- so it's set via innerHTML, same
-      // pattern already used for about.json's tagline and citations.
-      container.querySelector(".tty-title").innerHTML = photo.title || "";
-      container.querySelector(".tty-age").textContent = photo.age || "";
-      container.querySelector(".tty-date").textContent = photo.date ? "(" + photo.date + ")" : "";
-      container.querySelector(".tty-counter").textContent = (index + 1) + " of " + photos.length;
+    incoming.classList.add("tty-active");
+    outgoing.classList.remove("tty-active");
+    activeLayer = 1 - activeLayer;
 
-      img.classList.remove("tty-fading");
-    }, FADE_MS);
+    // title supports simple inline HTML (e.g. <em>, <span class="nobold">,
+    // named/numeric entities) -- see the family-photo entry in
+    // ThruTheYears-CaptionList.json -- so it's set via innerHTML, same
+    // pattern already used for about.json's tagline and citations.
+    container.querySelector(".tty-title").innerHTML = photo.title || "";
+    container.querySelector(".tty-age").textContent = photo.age || "";
+    container.querySelector(".tty-date").textContent = photo.date ? "(" + photo.date + ")" : "";
+    container.querySelector(".tty-counter").textContent = (index + 1) + " of " + photos.length;
   }
 
   function stripHtml(html) {
