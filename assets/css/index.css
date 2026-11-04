@@ -242,6 +242,10 @@
   font-size: 24px;
 }
 
+/* removed by Claude, 2026-11-03 19:08 -- #mywork no longer uses
+   .about-container/#about-text or .about-list/#about-roles (see the
+   removal note in index.html); replaced by Jesse's own introduction
+   content, styled under "# Introduction Section" below.
 .about-container {
   padding-bottom: 10px;
 }
@@ -250,6 +254,7 @@
   padding-left: 40px;
   font-size: smaller;
 }
+*/
 
 .about .content ul {
   list-style: none;
@@ -273,9 +278,13 @@
   line-height: 0;
 }
 
-/*--------------------------------------------------------------
-# Topics Section
---------------------------------------------------------------*/
+/* removed by Claude, 2026-11-03 19:08 -- #research-topics (and the
+   .topic-tile chips renderResearch() used to build inside it) was only
+   ever used inside #mywork, which no longer has a #research-topics div
+   -- see the removal note in index.html.
+   ------------------------------------------------------------
+   # Topics Section
+   ------------------------------------------------------------
 
 #research-topics {
   margin-top: 20px;
@@ -300,10 +309,59 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Optional hover polish */
+Optional hover polish
 .topic-tile:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 10px color-mix(in srgb, var(--default-color), transparent 90%);
+}
+*/
+
+/*--------------------------------------------------------------
+# Introduction Section (#mywork)
+added by Claude, 2026-11-03 19:08 -- styling for the hand-written intro
+in index.html, adapted from Jesse's assets/data/introduction.html.
+font-family changed from introduction.html's own Verdana stack to
+var(--default-font), matching every other paragraph/list/link on the
+page (see global.css's body/p/a/li/span rules) -- Jesse said this was
+fine to change. font-size and all spacing/margins otherwise unchanged
+from introduction.html. No .about-container/.about-list wrapper classes
+needed since there's no "roles" list anymore; left/right spacing still
+comes from the surrounding .content-container + .section rules in
+global.css, untouched here.
+--------------------------------------------------------------*/
+
+#jmh-about-me {
+  font-family: var(--default-font);
+  font-size: 10pt;
+}
+
+#jmh-about-me p {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+#jmh-about-me p:first-child {
+  margin-top: 0; /* added by Claude, 2026-11-03 19:15 */
+}
+
+#jmh-about-me blockquote {
+  margin-bottom: 0;
+  margin-top: 10px;
+  margin-left: 3em; /* added by Claude, 2026-11-03 19:13 */
+  font-style: italic;
+}
+
+#jmh-about-me blockquote span {
+  margin-left: 1.5em;
+}
+
+#jmh-about-me #contactinfo {
+  /* removed by Claude, 2026-11-03 19:13 -- Jesse asked for the last
+     line's margin-bottom to be 0
+  margin-bottom: 30px;
+  */
+  margin-bottom: 0; /* added by Claude, 2026-11-03 19:13 */
+  margin-top: 10px;
 }
 
 /*--------------------------------------------------------------

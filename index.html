@@ -82,10 +82,12 @@
 
     <!-- About Section (id must be "mywork" to match the nav link in
          navigation.html and the heading override in site-preferences.json) -->
+    <!-- removed by Claude, 2026-11-03 19:08 -- replaced the
+         about.json/research.json-driven bio (section-title heading +
+         #about-text/#about-roles/#research-topics) with Jesse's own
+         hand-written introduction, authored at assets/data/introduction.html
+         and inlined below. No section-title heading per Jesse's request.
     <section id="mywork" class="about section alt-section" data-aos="fade-up">
-      <!-- Default heading text here is overwritten at load time by
-           sections.mywork in assets/data/site-preferences.json (see
-           setSectionHeadings() in assets/js/index-preferences.js). -->
       <div class="container section-title">
         <h2>About My Work</h2>
       </div>
@@ -96,8 +98,45 @@
         <div class="about-list" id="about-roles"></div>
       </div>
       <div class="content-container" id="research-topics"></div>
-
-
+    </section>
+    -->
+    <!-- added by Claude, 2026-11-03 19:08 -- content adapted from
+         assets/data/introduction.html; styling lives in assets/css/index.css
+         under "# Introduction Section" so it's not inline here. The
+         .content-container wrapper is kept (even though nothing inside it
+         is dynamically loaded anymore) so this section keeps the exact same
+         left/right padding/margin as every other section, per Jesse's
+         request. -->
+    <section id="mywork" class="about section alt-section" data-aos="fade-up">
+      <div class="content-container">
+        <div id="jmh-about-me">
+          <p>After 2 years teaching
+            middle school math and science, 10&#189; years writing industry training materials,
+            31&#189; years teaching, doing research, and advising students at UMass Lowell, and 5
+            years volunteering &ldquo;behind the wall&rdquo; of a prison, I am now officially (and
+            very happily) retired.</p>
+          <p>Some may tell you that I
+            taught a lot of students, but the truth is that a lot of students taught me.&nbsp; I am
+            eternally grateful for my career and the many, many students who have been part of my
+            life and allowed me to be part of theirs.</p>
+          <p>In keeping with my long
+            tradition of finding connections between music and computing, I quote the introduction
+            to &ldquo;Getting To Know You,&rdquo; a song from the show <em>The King and I</em> by
+            Rogers and Hammerstein:</p>
+          <blockquote>
+            It&rsquo;s a very ancient saying,<br>
+            <span>but a true and honest thought:</span><br>
+            That if you become a teacher,<br>
+            <span>by your pupils you&rsquo;ll be taught.</span>
+          </blockquote>
+          <p id="contactinfo">All my email addresses are still active, but the best way to contact
+            me now is via email sent to
+            <a href="mailto:jesse@jesseheines.com?subject=Email&nbsp;from&nbsp;jesseheines.com">jesse@jesseheines.com</a>.</p>
+          <!-- fixed by Claude, 2026-11-03 19:13 -- mailto needs "?" before
+               the first query param, not "&"; was silently dropping the
+               subject line. -->
+        </div>
+      </div>
     </section>
 
     <!-- About Section -->
