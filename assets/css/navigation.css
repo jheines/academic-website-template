@@ -202,6 +202,16 @@
   display: none;
 }
 
+/* added by Claude, 2026-11-14 15:10 -- Tasks_2026-11-14.md Pass #2: the
+   "Links" nav item is a localhost-only dev shortcut. Hidden by default so
+   it's never visible on GitHub Pages or any other real host, even if the
+   localhost-detection script in navigation.js hasn't run yet or fails;
+   that script only ever REMOVES this class, it never adds it, so the
+   fail-safe state is always hidden. */
+.nav-localhost-only {
+  display: none;
+}
+
 /*--------------------------------------------------------------
 # Layout shift when nav is open on wide screens
 --------------------------------------------------------------*/

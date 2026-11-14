@@ -223,7 +223,10 @@
   width: 100%;
   margin-top: 6px;
   padding: 3px 8px;
+  /* removed by Claude, 2026-11-14 14:08 -- Tasks_2026-11-14.md Pass #1
   background: rgb(159, 214, 109);
+  */
+  background: rgb(224, 123, 22); /* added by Claude, 2026-11-14 14:08 */
   border-radius: 4px;
 }
 

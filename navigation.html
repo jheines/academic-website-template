@@ -12,12 +12,36 @@
 
   <nav id="navmenu" class="navmenu">
     <ul>
-      <li><a href="index.html#mywork"><i class="bi bi-person-lines-fill navicon"></i>About My Work</a></li>
+      <!-- added by Claude, 2026-11-14 15:10 -- Tasks_2026-11-14.md Pass #2:
+           dev-only "Links" item. nav-localhost-only is display:none by
+           default (see navigation.css); navigation.js removes that class
+           after the nav is injected, but only when location.hostname is
+           localhost/127.0.0.1, so this never appears on GitHub Pages or
+           any other real host even if JS runs slowly or errors out. -->
+      <li class="nav-localhost-only"><a href="links.html"><i class="bi bi-incognito navicon"></i>Links</a></li>
+      <!-- changed by Claude, 2026-11-14 14:08 -- Tasks_2026-11-14.md Pass
+           #1: label text "About My Work" -> "About Me", link unchanged -->
+      <li><a href="index.html#mywork"><i class="bi bi-person-lines-fill navicon"></i>About Me</a></li>
+      <!-- added by Claude, 2026-11-14 14:08 -- Tasks_2026-11-14.md Pass #1:
+           new "Photographs" nav item, linking out to Jesse's existing
+           photo gallery on the production site
+           -- updated by Claude, 2026-11-14 15:10, Pass #2: target="_blank"
+           so it opens in a new tab -->
+      <li><a href="https://jesseheines.com/pictures" target="_blank"><i class="bi bi-images navicon"></i>Photographs</a></li>
+      <!-- removed by Claude, 2026-11-14 14:08 -- Tasks_2026-11-14.md Pass #1
       <li><a href="index.html#projects"><i class="bi bi-kanban navicon"></i>Research Projects</a></li>
       <li><a href="index.html#technologies"><i class="bi bi-cpu navicon"></i>Technologies</a></li>
       <li><a href="index.html#cv"><i class="bi bi-blockquote-left navicon"></i>Curriculum Vitae</a></li>
-      <li><a href="database.html"><i class="bi bi-newspaper navicon"></i>Publications</a></li>
+      -->
+      <!-- changed by Claude, 2026-11-14 15:10 -- Tasks_2026-11-14.md Pass
+           #2: label "Publications" -> "Publications & Presentations";
+           link now points to the new publications.html (same-tab,
+           replacing database.html as the nav target -- database.html
+           itself is left in place, just unlinked from the nav for now) -->
+      <li><a href="publications.html"><i class="bi bi-newspaper navicon"></i>Publications &amp; Presentations</a></li>
+      <!-- removed by Claude, 2026-11-14 14:08 -- Tasks_2026-11-14.md Pass #1
       <li><a href="resources.html"><i class="bi navicon bi-journal-bookmark-fill"></i>Open-Access Resources</a></li>
+      -->
     </ul>
   </nav>
   <div class="contact-container" id="contact-container">

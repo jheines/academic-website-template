@@ -95,7 +95,14 @@ function populateContacts(about) {
 
     const strong = document.createElement('strong');
     strong.id = `contact-${c.type.toLowerCase()}`;
-    strong.textContent = c.email;
+
+    // added by Claude, 2026-11-14 14:08 -- Tasks_2026-11-14.md Pass #1:
+    // wrap the address in a mailto: link instead of plain text
+    // -- updated by Claude, 2026-11-14 15:10, Pass #2: added a subject line
+    const link = document.createElement('a');
+    link.href = `mailto:${c.email}?subject=${encodeURIComponent("Contact from Jesse's website")}`;
+    link.textContent = c.email;
+    strong.appendChild(link);
 
     p.appendChild(em);
     p.appendChild(document.createElement('br'));
@@ -114,7 +121,12 @@ async function initNavigationContent() {
     const about = await loadJSON('assets/data/about.json');
 
     populateNavIdentity(about);
-    renderSocialLinks(about.social);
+    // removed by Claude, 2026-11-14 14:08 -- Tasks_2026-11-14.md Pass #1:
+    // Jesse asked to remove all the icons in .social-links; not calling
+    // renderSocialLinks() leaves that div empty instead of deleting the
+    // function (about.social and the CATALOG mapping are untouched, in
+    // case this comes back).
+    // renderSocialLinks(about.social);
     populateContacts(about);
   } catch (err) {
     console.error(err);

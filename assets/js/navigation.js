@@ -41,6 +41,25 @@ function handleResponsiveNavigation() {
   }
 }
 
+// added by Claude, 2026-11-14 15:10 -- Tasks_2026-11-14.md Pass #2: reveal
+// the "Links" nav item only when running on localhost. Fails safe: the
+// item is display:none by default in navigation.css (.nav-localhost-only),
+// and this function only ever shows it, never hides it, so a slow/failed
+// script run just leaves it hidden instead of accidentally exposing it.
+// -- fixed by Claude, 2026-11-14 15:30, Pass #3: el.style.display = ""
+// only clears an INLINE style; it doesn't override the .nav-localhost-only
+// CLASS rule (display: none), which was still in effect since the class
+// itself was never removed -- so the item stayed hidden even though this
+// function ran correctly. Removing the class instead actually un-hides it.
+function showLocalhostOnlyNavItems() {
+  const host = window.location.hostname;
+  if (host === "localhost" || host === "127.0.0.1") {
+    document.querySelectorAll(".nav-localhost-only").forEach((el) => {
+      el.classList.remove("nav-localhost-only");
+    });
+  }
+}
+
 function togglenavigation() {
   const navigation = document.getElementById("navigation");
   if (!navigation) return;
@@ -77,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
           applySiteConfig();
         }
         setupNavToggle();
+        showLocalhostOnlyNavItems(); // added by Claude, 2026-11-14 15:10
         document.dispatchEvent(new Event("navigationLoaded"));
       });
   }

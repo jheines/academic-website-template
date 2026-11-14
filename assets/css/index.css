@@ -362,6 +362,7 @@ global.css, untouched here.
   */
   margin-bottom: 0; /* added by Claude, 2026-11-03 19:13 */
   margin-top: 10px;
+  font-weight: bold; /* added by Claude, 2026-11-14 15:10 -- Tasks_2026-11-14.md Pass #2 */
 }
 
 /*--------------------------------------------------------------

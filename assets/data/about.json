@@ -5,7 +5,7 @@
     "maintainer": "Jesse M. Heines, jesse@jesseheines.com and Claude Code",
      "copyright": "(c) 2026 by Jesse M. Heines.  All rights reserved.",
     "permission":  "May be copied or excerpted for educational purposes with credit to the author and maintainer.",
-       "updated": "October 30, 2026 at 9:23 AM"
+       "updated": "November 14, 2026 at 2:08 PM -- Claude, per Tasks_2026-11-14.md Pass #1: removed the placeholder 'industry' contact entirely (JSON has no comment syntax, so this is a real deletion, not a comment-out); renamed the remaining 'academic' contact's type to 'email' and its address to jesse@jesseheines.com"
   },
   "name": "Jesse M. Heines, Ed.D.",
   "nameShort": "Jesse Heines",
@@ -42,12 +42,8 @@
   ],
   "contacts": [
     {
-      "email": "academic@example.edu",
-      "type": "academic"
-    },
-    {
-      "email": "industry@example.com",
-      "type": "industry"
+      "email": "jesse@jesseheines.com",
+      "type": "email"
     }
   ],
   "social": {
