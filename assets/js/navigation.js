@@ -60,6 +60,21 @@ function showLocalhostOnlyNavItems() {
   }
 }
 
+// added by Claude, 2026-11-14 16:08 -- Tasks_2026-11-14.md Pass #4: on
+// localhost, point the Photographs link at the local site's own
+// /pictures path instead of the production jesseheines.com one. Fails
+// safe the same way as showLocalhostOnlyNavItems(): the href baked into
+// navigation.html is already the correct production URL, and this
+// function only ever REWRITES it for the localhost case, so a slow/failed
+// script run just leaves the production link in place everywhere else.
+function setPhotographsLinkHref() {
+  const host = window.location.hostname;
+  if (host === "localhost" || host === "127.0.0.1") {
+    const link = document.getElementById("nav-photographs-link");
+    if (link) link.href = `${window.location.protocol}//${window.location.host}/pictures`;
+  }
+}
+
 function togglenavigation() {
   const navigation = document.getElementById("navigation");
   if (!navigation) return;
@@ -97,6 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         setupNavToggle();
         showLocalhostOnlyNavItems(); // added by Claude, 2026-11-14 15:10
+        setPhotographsLinkHref(); // added by Claude, 2026-11-14 16:08
         document.dispatchEvent(new Event("navigationLoaded"));
       });
   }

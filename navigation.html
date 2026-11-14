@@ -26,8 +26,12 @@
            new "Photographs" nav item, linking out to Jesse's existing
            photo gallery on the production site
            -- updated by Claude, 2026-11-14 15:10, Pass #2: target="_blank"
-           so it opens in a new tab -->
-      <li><a href="https://jesseheines.com/pictures" target="_blank"><i class="bi bi-images navicon"></i>Photographs</a></li>
+           so it opens in a new tab
+           -- updated by Claude, 2026-11-14 16:08, Pass #4: added id so
+           navigation.js's setPhotographsLinkHref() can retarget this to
+           localhost/pictures when testing locally; href here stays the
+           production URL as the fail-safe default (see navigation.js) -->
+      <li><a id="nav-photographs-link" href="https://jesseheines.com/pictures" target="_blank"><i class="bi bi-images navicon"></i>Photographs</a></li>
       <!-- removed by Claude, 2026-11-14 14:08 -- Tasks_2026-11-14.md Pass #1
       <li><a href="index.html#projects"><i class="bi bi-kanban navicon"></i>Research Projects</a></li>
       <li><a href="index.html#technologies"><i class="bi bi-cpu navicon"></i>Technologies</a></li>

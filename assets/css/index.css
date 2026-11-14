@@ -362,7 +362,17 @@ global.css, untouched here.
   */
   margin-bottom: 0; /* added by Claude, 2026-11-03 19:13 */
   margin-top: 10px;
-  font-weight: bold; /* added by Claude, 2026-11-14 15:10 -- Tasks_2026-11-14.md Pass #2 */
+  /* removed by Claude, 2026-11-14 16:08 -- Tasks_2026-11-14.md Pass #4:
+     this bolded the whole paragraph; Jesse only wanted the email address
+     itself bold, see #jmh-about-me #contactinfo a below
+  font-weight: bold;
+  */
+}
+
+/* added by Claude, 2026-11-14 16:08 -- Tasks_2026-11-14.md Pass #4: only
+   the email address link is bold, not the surrounding sentence */
+#jmh-about-me #contactinfo a {
+  font-weight: bold;
 }
 
 /*--------------------------------------------------------------
