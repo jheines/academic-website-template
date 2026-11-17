@@ -1,5 +1,9 @@
 const main = document.querySelector("main.main");
-const footer = document.getElementById("footer");
+// removed by Claude, 2026-11-17 14:35 -- Tasks/Tasks_2026-11-17.md Pass #4:
+// #footer is now nested inside <main> (see index.html), so it shifts
+// along with main's own margin-left automatically and no longer needs
+// its own margin-left applied here.
+// const footer = document.getElementById("footer");
 
 function setupNavToggle() {
   const navigation = document.getElementById("navigation");
@@ -31,13 +35,11 @@ function handleResponsiveNavigation() {
   if (window.innerWidth >= 800) {
     navigation.classList.add("navigation-show");
     navigation.style.left = "0";
-    if (main) main.style.marginLeft = "300px";
-    if (footer) footer.style.marginLeft = "300px";
+    if (main) main.style.marginLeft = "200px"; // updated by Claude, 2026-11-17 15:10, Pass #5: 300px -> 200px
   } else {
     navigation.classList.remove("navigation-show");
-    navigation.style.left = "-300px";
+    navigation.style.left = "-200px"; // updated by Claude, 2026-11-17 15:10, Pass #5: 300px -> 200px
     if (main) main.style.marginLeft = "0px";
-    if (footer) footer.style.marginLeft = "0px";
   }
 }
 
@@ -89,14 +91,12 @@ function togglenavigation() {
 
   if (isShown) {
     navigation.classList.remove("navigation-show");
-    navigation.style.left = "-300px";
+    navigation.style.left = "-200px"; // updated by Claude, 2026-11-17 15:10, Pass #5: 300px -> 200px
     if (main)  main.style.marginLeft  = "0";
-    if (footer) footer.style.marginLeft = "0";
   } else {
     navigation.classList.add("navigation-show");
     navigation.style.left = "0";
-    if (main)  main.style.marginLeft  = "300px";
-    if (footer) footer.style.marginLeft = "300px";
+    if (main)  main.style.marginLeft  = "200px"; // updated by Claude, 2026-11-17 15:10, Pass #5: 300px -> 200px
   }
 }
 

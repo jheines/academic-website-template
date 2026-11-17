@@ -204,9 +204,19 @@
     </section>
     -->
 
-  </main>
+    <!-- moved by Claude, 2026-11-17 14:35 -- Tasks/Tasks_2026-11-17.md
+         Pass #4: the footer was previously a standalone sibling of <main>,
+         positioned with its own JS/CSS-driven margin-left to clear the
+         sidebar nav. That margin-left didn't correctly shrink the
+         footer's own width the way it does for <main>'s sections, so its
+         text rendered too wide and got hidden behind the sidebar at some
+         screen widths. Moving the footer inside <main>, like every other
+         section, lets it wrap exactly the way the rest of the page
+         already does -- see navigation.js/navigation.css for the
+         now-removed standalone #footer margin-left logic. -->
+    <div id="footer-include"></div>
 
-  <div id="footer-include"></div>
+  </main>
 
 </body>
 </html>

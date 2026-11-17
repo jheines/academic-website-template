@@ -151,13 +151,45 @@ span {
 
 .hero.secondary {
   width: 100%;
-  min-height: 20vh;
   background-color: var(--accent-color);
   color: var(--contrast-color);
-  padding: 24px 0;  
+  /* added by Claude, 2026-11-17 14:35 -- Tasks/Tasks_2026-11-17.md Pass #4:
+     the base .hero rule above sets justify-content: center, which was
+     centering the title .container (the Links/Publications page-title
+     bands) instead of leaving it flush left like before. */
+  justify-content: flex-start;
+  /* removed by Claude, 2026-11-17 15:05 -- Tasks/Tasks_2026-11-17.md
+     Pass #5: min-height: 20vh; padding: 24px 0; -- 20vh produced a very
+     tall bar with a large empty gap below the single-line title. Height
+     is now driven by the title's own padding instead (see
+     .hero.secondary h1 below), not a fixed viewport-relative minimum. */
 }
 
 .hero.secondary .background-container { display: none; }
+
+/* added by Claude, 2026-11-17 15:05 -- Tasks/Tasks_2026-11-17.md Pass #5:
+   index.css's .hero .container rule already sets text-align: left and
+   justify-content: flex-start, but Jesse still saw these titles
+   centered, so this higher-specificity override (3 classes vs. that
+   rule's 2) guarantees it regardless of stylesheet load order or a
+   stale cached copy of either file. */
+.hero.secondary .container {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+/* added by Claude, 2026-11-17 15:05 -- Tasks/Tasks_2026-11-17.md Pass #5:
+   size the title bar relative to the title's own text instead of a
+   fixed viewport height: 0.75em of padding above and 0.75em below the
+   title's own line adds up to about 2.5x the text's height overall
+   (0.75 + 1 + 0.75), and the flex align-items: center on .hero (above)
+   centers that box vertically within the (now content-sized) band. */
+.hero.secondary h1 {
+  margin: 0 0 0 1em; /* updated by Claude, 2026-11-17 15:16, Pass #6: 1em
+                         left margin so the title isn't flush against the
+                         nav bar's edge. */
+  padding: 0.75em 0;
+}
 
 .section {
   color: var(--color-text);
@@ -373,4 +405,16 @@ span {
   color: var(--nav-color);
   background-color: var(--mid2-teal);
   cursor: pointer;
+}
+
+/* added by Claude, 2026-11-17 14:02 -- Tasks/Tasks_2026-11-17.md Pass #3:
+   Jesse reported the footer credit text disappearing off the left edge
+   (hidden behind the sidebar nav) specifically in Bootstrap's lg tier
+   (roughly 992-1170px wide), while it wrapped fine at md/sm. Forcing
+   max-width: 100% keeps the paragraph from ever rendering wider than the
+   footer's actual available width at any breakpoint, and overflow-wrap
+   lets the long, slash-only GitHub URL break if it still needs to. */
+.footer .footer-content p {
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }

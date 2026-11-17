@@ -129,7 +129,7 @@ body {
 /* Keep margin shift when nav is open on wide screens (matches index.css behavior) */
 @media (min-width: 1200px) {
   body.database-page main {
-    margin-left: 300px;
+    margin-left: 200px; /* updated by Claude, 2026-11-17 15:10, Pass #5: 300px -> 200px, to match navigation.css/navigation.js's nav width */
   }
 }
 

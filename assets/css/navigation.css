@@ -13,10 +13,10 @@
 
   position: fixed;
   top: 0;
-  left: -300px;
+  left: -200px; /* updated by Claude, 2026-11-17 15:10, Pass #5: 300px -> 200px */
   bottom: 0;
   padding: 0 15px;
-  width: 300px;
+  width: 200px; /* updated by Claude, 2026-11-17 15:10, Pass #5: 300px -> 200px */
   transition: left 0.3s, background-color 0.3s;
   overflow-y: auto;
   z-index: 1100;
@@ -161,7 +161,11 @@
   font-weight: 400;
   display: flex;
   align-items: center;
-  white-space: nowrap;
+  /* removed by Claude, 2026-11-17 14:35 -- Tasks/Tasks_2026-11-17.md
+     Pass #4: white-space: nowrap; -- this was forcing long labels like
+     "Publications & Presentations" to render on one line, overflowing
+     past the .navigation panel's 300px edge and making the nav appear
+     ~330px wide. Letting it wrap keeps the nav panel at its true 300px. */
   transition: color 0.3s;
   width: 100%;
 }
@@ -223,21 +227,22 @@
     left: 0;
   }
 
-  .navigation.navigation-show ~ main,
-  .navigation.navigation-show ~ #footer {
-    margin-left: 300px;
+  .navigation.navigation-show ~ main {
+    margin-left: 200px; /* updated by Claude, 2026-11-17 15:10, Pass #5: 300px -> 200px */
     transition: margin-left 0.3s;
   }
 
-  .navigation ~ main,
-  .navigation ~ #footer {
+  .navigation ~ main {
     margin-left: 0;
     transition: margin-left 0.3s;
   }
+  /* removed by Claude, 2026-11-17 14:35 -- Tasks/Tasks_2026-11-17.md
+     Pass #4: #footer is now nested inside <main> (see index.html) instead
+     of being a standalone sibling, so it no longer needs its own
+     margin-left rule here -- it shifts along with main automatically. */
 }
 
 /* Smooth transition always */
-.main,
-#footer {
+.main {
   transition: margin-left 0.3s;
 }

@@ -1,3 +1,11 @@
+# SemesterProject_Code\academic-website-template\.gitignore
+# created by Claude Code
+# updated by JMH on November 17, 2026 at 1:45 PM
+
+
+# Jesse's own drafts -- not part of the deployed site
+/assets/data/JesseDrafts/
+
 # Jesse's own task-tracking notes -- not part of the deployed site
 /Tasks/
 
@@ -7,6 +15,3 @@
 # Jesse's local Bootstrap-breakpoint testing utility (assets/ThruTheYears/CLAUDE.md,
 # Round 7: "we will not include it when we do git commits")
 /assets/Bootstrap-Breakpoint-Badge.html
-
-# Authoring source for content later inlined into index.html -- not tracked itself
-/assets/data/introduction.html
