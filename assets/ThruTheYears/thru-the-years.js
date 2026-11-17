@@ -39,6 +39,16 @@
   };
   var CAPTION_LIST_URL = "assets/ThruTheYears/ThruTheYears-CaptionList.json";
   var ADVANCE_MS = 3000;
+  // added by Claude, 2026-11-17 11:37 -- Tasks/Tasks_2026-11-17.md Pass #1:
+  // remembers which picture (1-indexed, matching the "n of total" counter)
+  // the visitor last had showing, so a return visit can resume there.
+  // COOKIE_DAYS is how long that memory lasts; CONSENT_DECLINED_KEY is a
+  // sessionStorage (not cookie) flag so a "no thanks" answer isn't asked
+  // again for the rest of this browser session, without itself requiring
+  // a cookie to remember that "no."
+  var COOKIE_NAME = "JMH_ThroughTheYears_LastPictureNumber";
+  var COOKIE_DAYS = 365;
+  var CONSENT_DECLINED_KEY = "JMH_ThroughTheYears_CookieConsentDeclined";
   // removed by Claude, 2026-11-03 10:30 -- Round 4: no longer needed now
   // that both photo layers fade via CSS at the same time (true
   // crossfade) instead of this script timing a sequential fade-out,
@@ -66,6 +76,12 @@
   var timerId = null;
   var paused = false;
   var container = null;
+  // added by Claude, 2026-11-17 11:37 -- Tasks/Tasks_2026-11-17.md Pass #1:
+  // true once we're allowed to write COOKIE_NAME -- either because it
+  // already existed when this page loaded (prior consent), or because the
+  // visitor just clicked "Allow" in the consent dialog this load. render()
+  // checks this before writing, so nothing is ever written without consent.
+  var cookieAllowed = false;
 
   // added by Claude, 2026-11-03 10:30 -- Round 4
   function isXSmall() {
@@ -76,6 +92,67 @@
   }
   function hoverNotePaused() {
     return isXSmall() ? HOVER_NOTE_PAUSED_MOBILE : HOVER_NOTE_PAUSED_DESKTOP;
+  }
+
+  // added by Claude, 2026-11-17 11:37 -- Tasks/Tasks_2026-11-17.md Pass #1:
+  // tiny cookie helpers (no library needed for just get/set).
+  function getCookie(name) {
+    var match = document.cookie.match(
+      new RegExp("(?:^|; )" + name + "=([^;]*)")
+    );
+    return match ? decodeURIComponent(match[1]) : null;
+  }
+  function setCookie(name, value) {
+    var expires = new Date();
+    expires.setTime(expires.getTime() + COOKIE_DAYS * 24 * 60 * 60 * 1000);
+    document.cookie =
+      name + "=" + encodeURIComponent(value) + "; expires=" + expires.toUTCString() + "; path=/";
+  }
+
+  // added by Claude, 2026-11-17 11:37 -- Pass #1: builds (once) and shows
+  // the "this site uses cookies" consent dialog as a Bootstrap modal
+  // (assets/vendor/bootstrap/js/bootstrap.bundle.min.js is already loaded
+  // non-deferred on index.html, so window.bootstrap is ready by the time
+  // this deferred script runs). The slide show keeps running underneath
+  // while this is up -- it's not asking permission to BE a slide show,
+  // just to remember where it left off next time.
+  function showCookieConsentDialog() {
+    var modalEl = document.getElementById("tty-cookie-consent-modal");
+    if (!modalEl) {
+      var wrapper = document.createElement("div");
+      wrapper.innerHTML =
+        '<div class="modal fade" id="tty-cookie-consent-modal" tabindex="-1" aria-hidden="true">' +
+          '<div class="modal-dialog modal-dialog-centered">' +
+            '<div class="modal-content">' +
+              '<div class="modal-header">' +
+                '<h5 class="modal-title">This Site Uses Cookies</h5>' +
+              "</div>" +
+              '<div class="modal-body">' +
+                "<p>The \"Through the Years\" slide show can remember which picture " +
+                "you were last viewing, using a cookie, so it can pick up where you " +
+                "left off the next time you visit. Is that okay?</p>" +
+              "</div>" +
+              '<div class="modal-footer">' +
+                '<button type="button" class="btn btn-secondary" id="tty-cookie-decline">No, thanks</button>' +
+                '<button type="button" class="btn btn-primary" id="tty-cookie-accept">Allow</button>' +
+              "</div>" +
+            "</div>" +
+          "</div>" +
+        "</div>";
+      document.body.appendChild(wrapper.firstChild);
+      modalEl = document.getElementById("tty-cookie-consent-modal");
+
+      document.getElementById("tty-cookie-accept").addEventListener("click", function () {
+        cookieAllowed = true;
+        setCookie(COOKIE_NAME, index + 1);
+        bootstrap.Modal.getOrCreateInstance(modalEl).hide();
+      });
+      document.getElementById("tty-cookie-decline").addEventListener("click", function () {
+        sessionStorage.setItem(CONSENT_DECLINED_KEY, "1");
+        bootstrap.Modal.getOrCreateInstance(modalEl).hide();
+      });
+    }
+    bootstrap.Modal.getOrCreateInstance(modalEl).show();
   }
 
   document.addEventListener("DOMContentLoaded", init);
@@ -108,6 +185,22 @@
         });
 
       if (!photos.length) return;
+
+      // added by Claude, 2026-11-17 11:37 -- Tasks/Tasks_2026-11-17.md
+      // Pass #1: resume from the last-viewed picture if we have one on
+      // record, or ask permission to start keeping one. Checked every
+      // time this page loads (first visit or a later one in the same
+      // session) per Jesse's spec.
+      var savedPictureNumber = getCookie(COOKIE_NAME);
+      if (savedPictureNumber !== null) {
+        var savedIndex = parseInt(savedPictureNumber, 10) - 1;
+        if (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < photos.length) {
+          index = savedIndex;
+        }
+        cookieAllowed = true; // the cookie's existence IS prior consent
+      } else if (sessionStorage.getItem(CONSENT_DECLINED_KEY) !== "1") {
+        showCookieConsentDialog();
+      }
 
       // added by Claude, 2026-11-03 10:30 -- Round 4: Age Links menu
       // entries, in the same order as photos (already chronological).
@@ -276,6 +369,12 @@
     container.querySelector(".tty-age").textContent = photo.age || "";
     container.querySelector(".tty-date").textContent = photo.date ? "(" + photo.date + ")" : "";
     container.querySelector(".tty-counter").textContent = (index + 1) + " of " + photos.length;
+
+    // added by Claude, 2026-11-17 11:37 -- Tasks/Tasks_2026-11-17.md
+    // Pass #1: keep the resume-point cookie current after every picture
+    // change (arrow click, Age Links jump, or auto-advance) -- but only
+    // once we actually have consent (see init()/showCookieConsentDialog()).
+    if (cookieAllowed) setCookie(COOKIE_NAME, index + 1);
   }
 
   function stripHtml(html) {

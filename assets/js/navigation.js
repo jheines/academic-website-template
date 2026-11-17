@@ -43,19 +43,25 @@ function handleResponsiveNavigation() {
 
 // added by Claude, 2026-11-14 15:10 -- Tasks_2026-11-14.md Pass #2: reveal
 // the "Links" nav item only when running on localhost. Fails safe: the
-// item is display:none by default in navigation.css (.nav-localhost-only),
+// item is display:none by default in navigation.css (.nav-dev-only),
 // and this function only ever shows it, never hides it, so a slow/failed
 // script run just leaves it hidden instead of accidentally exposing it.
 // -- fixed by Claude, 2026-11-14 15:30, Pass #3: el.style.display = ""
-// only clears an INLINE style; it doesn't override the .nav-localhost-only
+// only clears an INLINE style; it doesn't override the .nav-dev-only
 // CLASS rule (display: none), which was still in effect since the class
 // itself was never removed -- so the item stayed hidden even though this
 // function ran correctly. Removing the class instead actually un-hides it.
-function showLocalhostOnlyNavItems() {
+// -- updated by Claude, 2026-11-17 11:37, Pass #1: renamed from
+// showLocalhostOnlyNavItems() and the nav-localhost-only class renamed to
+// nav-dev-only, since the item should now ALSO show when the URL's
+// search string contains "jesse" (e.g. ?jesse), not just on localhost.
+function showDevOnlyNavItems() {
   const host = window.location.hostname;
-  if (host === "localhost" || host === "127.0.0.1") {
-    document.querySelectorAll(".nav-localhost-only").forEach((el) => {
-      el.classList.remove("nav-localhost-only");
+  const isLocalhost = host === "localhost" || host === "127.0.0.1";
+  const hasJesseParam = window.location.search.includes("jesse");
+  if (isLocalhost || hasJesseParam) {
+    document.querySelectorAll(".nav-dev-only").forEach((el) => {
+      el.classList.remove("nav-dev-only");
     });
   }
 }
@@ -63,7 +69,7 @@ function showLocalhostOnlyNavItems() {
 // added by Claude, 2026-11-14 16:08 -- Tasks_2026-11-14.md Pass #4: on
 // localhost, point the Photographs link at the local site's own
 // /pictures path instead of the production jesseheines.com one. Fails
-// safe the same way as showLocalhostOnlyNavItems(): the href baked into
+// safe the same way as showDevOnlyNavItems(): the href baked into
 // navigation.html is already the correct production URL, and this
 // function only ever REWRITES it for the localhost case, so a slow/failed
 // script run just leaves the production link in place everywhere else.
@@ -111,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
           applySiteConfig();
         }
         setupNavToggle();
-        showLocalhostOnlyNavItems(); // added by Claude, 2026-11-14 15:10
+        showDevOnlyNavItems(); // added by Claude, 2026-11-14 15:10, renamed 2026-11-17
         setPhotographsLinkHref(); // added by Claude, 2026-11-14 16:08
         document.dispatchEvent(new Event("navigationLoaded"));
       });

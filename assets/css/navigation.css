@@ -203,12 +203,15 @@
 }
 
 /* added by Claude, 2026-11-14 15:10 -- Tasks_2026-11-14.md Pass #2: the
-   "Links" nav item is a localhost-only dev shortcut. Hidden by default so
-   it's never visible on GitHub Pages or any other real host, even if the
-   localhost-detection script in navigation.js hasn't run yet or fails;
-   that script only ever REMOVES this class, it never adds it, so the
-   fail-safe state is always hidden. */
-.nav-localhost-only {
+   "Links" nav item is a dev-only shortcut. Hidden by default so it's
+   never visible on GitHub Pages or any other real host, even if the
+   dev-detection script in navigation.js hasn't run yet or fails; that
+   script only ever REMOVES this class, it never adds it, so the
+   fail-safe state is always hidden.
+   -- renamed by Claude, 2026-11-17 11:37, Pass #1: nav-localhost-only ->
+   nav-dev-only, since showDevOnlyNavItems() now also reveals it when the
+   URL search string contains "jesse", not just on localhost. */
+.nav-dev-only {
   display: none;
 }
 

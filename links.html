@@ -6,12 +6,14 @@
     freely copied or excerpted for educational purposes with credit to
     the author and maintainer.
 
-  Tasks_2026-11-14.md Pass #2: standalone page for the localhost-only
-  "Links" nav item (see navigation.html's .nav-localhost-only item and
-  navigation.js's showLocalhostOnlyNavItems()). This page itself has no
-  visibility restriction of its own -- if someone guesses the URL on a
-  real server they can still open it directly -- only the NAV LINK to it
-  is hidden off of localhost, per Jesse's spec. Empty for now; content TBD.
+  Tasks_2026-11-14.md Pass #2: standalone page for the dev-only "Links"
+  nav item (see navigation.html's .nav-dev-only item and navigation.js's
+  showDevOnlyNavItems()). This page itself has no visibility restriction
+  of its own -- if someone guesses the URL on a real server they can
+  still open it directly -- only the NAV LINK to it is hidden unless
+  you're on localhost or the URL has "jesse" in its search string (added
+  Tasks/Tasks_2026-11-17.md Pass #1), per Jesse's spec. Empty for now;
+  content TBD.
 -->
 <!DOCTYPE html>
 <html lang="en">
