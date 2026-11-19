@@ -1,0 +1,298 @@
+{
+
+  "comment" : {
+    "file" : "JesseLinks.json",
+    "updated" : "2026-11-18 21:58 updated by JMH",
+
+    "key at level 1" : "group title to display",
+    "key at level 2" : "menu item text to display",
+
+    "level" : {
+      "purpose" : "menu level, where the values indicate:",
+      "1" : "(default) a top level menu item",
+      "2" : "a second level menu item in a dropdown under the last top level item"
+    },
+    "url" : {
+      "purpose" : "URL (relative or absolute) to go to when that menu item is selected",
+      "note" : "if this item is empty, the main menu (parent) item has an arrow cursor when hovering rather than a finger pointing cursor"
+    },
+    "target" : {
+      "purpose" : "value for anchor <a> tag target attribute",
+      "_blank" : "(default)"
+    },
+    "tooltip" : "menu item tooltip",
+    "active" : {
+      "purpose" : "link active/inactive flag",
+      "true" : "(default) the link is active (the cursor is a pointing finger)",
+      "false" : "the link is not active (the cursor is a default arrow)"
+    },
+    "hidden" : {
+      "purpose" : "hide a menu item",
+      "true" : "the item is hidden",
+      "false" : "(default) the item is visible"
+    },
+    "color" : "text color (default = normal)",
+    "boldface" : {
+      "true" : "text is to be displayed in boldface",
+      "false" : "(default) text is to be displayed normally"
+    }
+  },
+
+
+
+  "TOP LEVEL LINKS" : {
+    "Urology Data Plot - Local" : {
+      "level" : 1,
+      "url" : "/~heines/urology/",
+      "hidden" : true
+    },
+    "JavaScript Console for iPhone" : {
+      "level" : 1,
+      "url" : "https://jsconsole.com/?%3Alisten",
+      "hidden" : true
+    }
+  },
+
+
+
+  "COMP-4600" : {
+    "COMP-4600 Canvas" : {
+      "url" : "https://canvas.uml.edu/courses/26993"
+    },
+    "GitHub Home" : {
+      "url" : "https://github.com/"
+    },
+    "GitTest_1 Website" : {
+      "url" : "https://jheines.github.io/GitTest_1/",
+      "hidden" : true
+    },
+    "Morgan Vickery Template on GitHub" : {
+      "url" : "https://github.com/morganavickery/academic-website-template/tree/main"
+    },
+    "Semester Project on localhost" : {
+      "url" : "/4600/SemesterProject_Code/academic-website-template/"
+    },
+    "Semester Project on GitHub" : {
+      "url" : "https://jheines.github.io/academic-website-template/"
+    }
+  },
+
+
+
+  "FREQUENTLY VISITED SITES" : {
+    "Dropbox" : {
+      "level" : 1, 
+      "url" : "https://www.dropbox.com/home"
+    },
+    "Google Groups" : {
+      "level" : 1, 
+      "url" : "https://groups.google.com/my-groups"
+    },
+    "Google Remote Desktop" : {
+      "level" : 1, 
+      "url" : "https://remotedesktop.google.com/access",
+      "boldface" : true
+    },
+    "Nexar Dashboard" : {
+      "level" : 1, 
+      "url" : "https://dashboard.getnexar.com/login"
+    },
+    "Phillips DreamMapper" : {
+      "level" : 1, 
+      "url" : "https://www.mydreammapper.com/"
+    },
+    "Synology DiskStation (local)" : {
+      "level" : 1, 
+      "url" : "http://10.0.0.34:5000"
+    },
+    "Todoist Inbox" : {
+      "level" : 1, 
+      "url" : "https://app.todoist.com/app/inbox",
+      "boldface" : true
+    },
+    "YMCA Schedules" : {
+      "level" : 1, 
+      "url" : "http://greaterlowellymca.org/index.php/area-schedules"
+    },
+    "Zoom Upcoming Meetings" : {
+      "level" : 1, 
+      "url" : "https://zoom.us/meeting#/upcoming"
+    }
+  },
+
+
+
+  "GENTLEMEN SONGSTERS" : {
+    "Activities (on Google Drive)" : {
+      "level" : 1,
+      "url" : "https://docs.google.com/spreadsheets/d/1Ip62cOuJnnc9xT-pTfbKNzysFVOhrSNcE3lCCLkw6L0"
+    },
+    "Learning Media (on Google Drive)" : {
+      "level" : 1,
+      "url" : "https://drive.google.com/drive/folders/0B1v32eTWr2fWMlV3RFBpX21aYlE"
+    },
+    "Secretary (on Google Drive)" : {
+      "level" : 1,
+      "url" : "https://drive.google.com/drive/folders/0B1v32eTWr2fWa3VDR3pQc0FjTms"
+    },
+    "Attendance Record (Google Sheets)" : {
+      "level" : 2,
+      "url" : "https://docs.google.com/spreadsheets/d/146Eu_QsaiAjgu8IshtUQVKijCMBvCAOpWydS9GTW0xI/edit?usp=sharing"
+    },
+    "Google Voice (<em>then switch accounts</em>)" : {
+      "level" : 2, 
+      "url" : "https://voice.google.com/u/1/messages"
+    },
+    "Google Gmail (<em>then switch accounts</em>)" : {
+      "level" : 2, 
+      "url" : "https://mail.google.com/mail/u/1/#inbox"
+    },
+    "Meeting Minutes" : {
+      "level" : 2, 
+      "url" : "https://drive.google.com/drive/folders/1JIpqtZu9EAjg6mrVTtK0PUafFgwkvbyw"
+    },
+    "Performance Request Form (Google Forms)" : {
+      "level" : 2, 
+      "url" : "https://docs.google.com/forms/d/1z1YsmUljZZXULbX3_jJ6hLO8QhdxhiTqRSc5bjTGd04/edit"
+    },
+    "Treasurer (Google Drive)" : {
+      "level" : 1, 
+      "url" : "https://drive.google.com/drive/folders/1VmtOyaOtqvuu7uxDweHqca3YOJ-6ImCt"
+    },
+    "Accounting Books (Google Sheets)" : {
+      "level" : 2, 
+      "url" : "https://docs.google.com/spreadsheets/d/1pkmI6q3ZamejlzTntU6rIvoJFhmPhJG1iChT0ay3EMo/edit#gid=1281312751"
+    }
+  },
+
+
+
+  "CONGREGATION SHALOM BROTHERHOOD" : {
+    "Workspace" : {
+      "level" : 1, 
+      "url" : "https://admin.google.com/u/1/?pli=1",
+      "hidden" : true
+    },
+    "Google Drive" : {
+      "level" : 1, 
+      "url" : "https://drive.google.com/drive/u/1/my-drive",
+      "hidden" : true
+    },
+    "Haftorah" : {
+      "level" : 1, 
+      "url" : "https://jesseheines.com/Haftorah",
+      "color" : "yellow",
+      "boldface" : true,
+      "hidden" : true 
+    }
+  },
+
+
+
+  "UMASS LOWELL" : {
+    "MA Comptroller PayInfo Login" : {
+      "level" : 1, 
+      "url" : "https://payinfo.state.ma.us/PayInfo/login.asp"
+    },
+    "Social Security Login" : {
+      "level" : 1, 
+      "url" : "https://secure.ssa.gov/RIL/SiView.action"
+    },
+    "UMass Lowell IT Spam Filter" : {
+      "level" : 1, 
+      "url" : "https://00110704.pphosted.com:10020/euweb/login"
+    },
+    "UMass Lowell People Search" : {
+      "level" : 1, 
+      "url" : "https://www.uml.edu/search/?type=people"
+    }
+  },
+
+
+
+  "MIT CLASS OF 1970" : {
+    "Website" : {
+      "level" : 1, 
+      "url" : "https://alumcommunity.mit.edu/topics/26522/page/lobby"
+    },
+    "Class Notes on localhost" : {
+      "level" : 1, 
+      "url" : "http://localhost/mit1970/ClassNotes_v6.php"
+    },
+    "Class Notes on Alumni Site" : {
+      "level" : 1, 
+      "url" : "https://alum.mit.edu/communities/class-notes-and-sites/search?class=1970"
+    },
+    "Classmate Directory" : {
+      "level" : 1, 
+      "url" : "https://alum.mit.edu/directory/#/"
+    },
+    "Deceased Classmates on localhost" : {
+      "level" : 1, 
+      "url" : "/mit1970/MissingDeceasedClassmates_v8.php"
+    },
+    "Facebook Page" : {
+      "level" : 1, 
+      "url" : "https://www.facebook.com/groups/169375971317/"
+    },
+    "ListServ" : {
+      "level" : 1, 
+      "url" : "https://alum.mit.edu/email-group/user/email-groups/mit1970"
+    },
+    "Infinite Connection Directory" : {
+      "level" : 1, 
+      "url" : "https://alum.mit.edu/directory"
+    }
+  },
+
+
+
+  "EMAIL ACCOUNTS" : {
+    "CS Webmail (<em>requires GlobalProtect</em>)" : {
+      "level" : 1, 
+      "url" : "http://webmail.cs.uml.edu"
+    },
+    "Comcast Login" : {
+      "level" : 1, 
+      "url" : "https://connect.xfinity.com/appsuite/#!!&app=io.ox/mail&folder=default0/INBOX"
+    },
+    "JesseHeines.com (<em>may need to sign out first</em>)" : {
+      "level" : 1, 
+      "url" : "http://email.jesseheines.com"
+    },
+    "GoDaddy Email Security" : {
+      "level" : 2, 
+      "url" : "https://godaddy1.cloud-protect.net/app/login.php"
+    },
+    "Request New Digest" : {
+      "level" : 2, 
+      "url" : "https://usg1.proofpointessentials.com/app/digest.php?action=request&k=k1&payload=4i1690006f1cfa2895023d1d054d34515f8ef99b8c232a797a67779e3b5cfeb25a51c4d1d6e64f783a45670ed9081a61a83077aae1c49c5b2caf447614b7b2f7ea17d0f5fd7c30d169217e3f0d34d984bf84c3506ba96710b334a7558c19b6b394de8f424a73831c0734996fbf971693ddb9105d84be98f328f7ae025ee9ac3d04a32dfe88ed1b0f688dccc329dcf3154ee821c2500a4faa1a6696bbe55be98094ad5ac36c66f23e7ee687a079c0864e62056bc78747f379ffb0c6b5a18277d1e2f26f304e8db215ba683036ec52e25fd54d50b26d3e6a9f0f425247370cc44b7f368001143a031531dda0b66499195088aa2f3ca4089e76d08dd47a370de3a83b8650ade910af0a2a33964a1dba7887d5bb&ts=1740948156&e_uuid=4i0460398952850c45e6645e4b778956124b3bdf8a9b04cd1a5f6ab6f8ec830891c82347c78f10ee2edaed2c58c81da2b7ad4eb45f5524e529662ff817b3c6e152b2d5895ca1623e9f83367668&a_id=4i49b20ceb6115e325347c47b88b77db861fb1b469805eb7491f1a486c2e1c6285c1b43d98167f3bf8e3c6dec74fee6d8569042f3bda833e63ac42705871"
+    },
+    "UML Exchange" : {
+      "level" : 1, 
+      "url" : "http://outlook.com/owa/uml.edu/Jesse_Heines@studentuml.mail.onmicrosoft.com"
+    }
+  },
+
+
+
+  "UTILITIES AND SESSION DETAILS" : {
+    "JavaScript and JSP Test Values" : {
+      "level" : 1, 
+      "url" : "/~heines/tests/JSP/j1.jsp"
+    },
+    "JSON Formatter & Validator" : {
+      "level" : 1, 
+      "url" : "https://jsonlint.com/"
+    },
+    "JSP Session Variables" : {
+      "level" : 1, 
+      "url" : "/~heines/grades/showallsessionvariables.jsp"
+    },
+    "PHP Info" : {
+      "level" : 1, 
+      "url" : "/~heines/tests/php/phpinfo.php"
+    }
+  }
+
+}

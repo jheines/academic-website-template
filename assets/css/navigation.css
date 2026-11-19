@@ -155,12 +155,18 @@
 .navmenu a,
 .navmenu a:focus {
   color: var(--nav-color);
-  padding: 15px 10px;
+  padding: 8px 10px; /* updated by Claude, 2026-11-18 11:52, Tasks/Tasks_2026-11-18.md
+                         Pass #1: was 15px 10px -- halved the top/bottom padding to
+                         close up the vertical space between menu items. */
   font-family: var(--nav-font);
   font-size: 16px;
   font-weight: 400;
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* updated by Claude, 2026-11-18 11:52, Pass #1:
+                               was center -- aligns each item's icon with the
+                               top of its text instead of vertically centering
+                               it, which matters now that labels can wrap to
+                               more than one line. */
   /* removed by Claude, 2026-11-17 14:35 -- Tasks/Tasks_2026-11-17.md
      Pass #4: white-space: nowrap; -- this was forcing long labels like
      "Publications & Presentations" to render on one line, overflowing

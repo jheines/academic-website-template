@@ -16,18 +16,6 @@
            Pass #1: "Home" item, icon bi-house (codepoint \f425 = decimal
            62501, matching Jesse's icon number), just reloads index.html -->
       <li><a href="index.html"><i class="bi bi-house navicon"></i>Home</a></li>
-      <!-- added by Claude, 2026-11-14 15:10 -- Tasks_2026-11-14.md Pass #2:
-           dev-only "Links" item. nav-dev-only is display:none by default
-           (see navigation.css); navigation.js removes that class after
-           the nav is injected, but only when location.hostname is
-           localhost/127.0.0.1 OR the URL's search string contains
-           "jesse", so this never appears on GitHub Pages or any other
-           real host (for anyone who doesn't know/use the ?jesse param)
-           even if JS runs slowly or errors out.
-           -- updated by Claude, 2026-11-17 11:37, Pass #1: class renamed
-           nav-localhost-only -> nav-dev-only to reflect the broader
-           ?jesse condition added this pass (see navigation.js) -->
-      <li class="nav-dev-only"><a href="links.html"><i class="bi bi-incognito navicon"></i>Links</a></li>
       <!-- changed by Claude, 2026-11-14 14:08 -- Tasks_2026-11-14.md Pass
            #1: label text "About My Work" -> "About Me", link unchanged -->
       <li><a href="index.html#mywork"><i class="bi bi-person-lines-fill navicon"></i>About Me</a></li>
@@ -55,6 +43,22 @@
       <!-- removed by Claude, 2026-11-14 14:08 -- Tasks_2026-11-14.md Pass #1
       <li><a href="resources.html"><i class="bi navicon bi-journal-bookmark-fill"></i>Open-Access Resources</a></li>
       -->
+      <!-- moved by Claude, 2026-11-18 11:52 -- Tasks/Tasks_2026-11-18.md
+           Pass #1: Jesse asked for the "Links" item at the bottom of the
+           list whenever it appears (see below for the original
+           added-by note on why it's hidden by default).
+           -- added by Claude, 2026-11-14 15:10 -- Tasks_2026-11-14.md Pass #2:
+           dev-only "Links" item. nav-dev-only is display:none by default
+           (see navigation.css); navigation.js removes that class after
+           the nav is injected, but only when location.hostname is
+           localhost/127.0.0.1 OR the URL's search string contains
+           "jesse", so this never appears on GitHub Pages or any other
+           real host (for anyone who doesn't know/use the ?jesse param)
+           even if JS runs slowly or errors out.
+           -- updated by Claude, 2026-11-17 11:37, Pass #1: class renamed
+           nav-localhost-only -> nav-dev-only to reflect the broader
+           ?jesse condition added this pass (see navigation.js) -->
+      <li class="nav-dev-only"><a href="links.html"><i class="bi bi-incognito navicon"></i>Links</a></li>
     </ul>
   </nav>
   <div class="contact-container" id="contact-container">

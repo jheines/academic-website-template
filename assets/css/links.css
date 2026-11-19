@@ -1,0 +1,58 @@
+/* assets/css/links.css */
+/* added by Claude, 2026-11-18 16:05 -- Tasks/Tasks_2026-11-18.md Pass #2
+   Styling for the group/list markup links.js builds from
+   assets/data/JesseLinks.json on links.html. */
+
+.links-content {
+  max-width: 700px;
+}
+
+.links-group {
+  margin-bottom: 1.75em;
+}
+
+.links-group-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin: 0 0 0.5em 0;
+}
+
+.links-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.links-item {
+  /* removed by Claude, 2026-11-18 21:54 -- Tasks/Tasks_2026-11-18.md
+     Pass #3: Jesse felt the gap between menu items was too large;
+     commenting out line-height: 1.8 closes it up. */
+  /* line-height: 1.8; */
+}
+
+.links-item.links-level-2 {
+  margin-left: 1em;
+}
+
+.links-item a {
+  color: rgb(143, 37, 12); /* updated by Claude, 2026-11-18 21:54, Tasks/Tasks_2026-11-18.md
+                               Pass #3: was var(--accent-color) -- Jesse asked for a
+                               darker default link color (matching the nav bar's
+                               background) for more contrast against the light page
+                               background. */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.links-item a:hover {
+  text-decoration: underline;
+}
+
+.links-item span {
+  color: var(--default-color);
+}
+
+.links-item .links-inactive {
+  cursor: default;
+}
