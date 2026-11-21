@@ -2,7 +2,7 @@
 
   "comment" : {
     "file" : "JesseLinks.json",
-    "updated" : "2026-11-18 21:58 updated by JMH",
+    "updated" : "2026-11-18 22:08 updated by JMH",
 
     "key at level 1" : "group title to display",
     "key at level 2" : "menu item text to display",
@@ -70,7 +70,8 @@
       "url" : "https://github.com/morganavickery/academic-website-template/tree/main"
     },
     "Semester Project on localhost" : {
-      "url" : "/4600/SemesterProject_Code/academic-website-template/"
+      "url" : "/4600/SemesterProject_Code/academic-website-template/",
+      "boldface" : true
     },
     "Semester Project on GitHub" : {
       "url" : "https://jheines.github.io/academic-website-template/"
@@ -90,8 +91,7 @@
     },
     "Google Remote Desktop" : {
       "level" : 1, 
-      "url" : "https://remotedesktop.google.com/access",
-      "boldface" : true
+      "url" : "https://remotedesktop.google.com/access"
     },
     "Nexar Dashboard" : {
       "level" : 1, 
@@ -101,7 +101,7 @@
       "level" : 1, 
       "url" : "https://www.mydreammapper.com/"
     },
-    "Synology DiskStation (local)" : {
+    "Synology DiskStation &nbsp;(local)" : {
       "level" : 1, 
       "url" : "http://10.0.0.34:5000"
     },
@@ -123,43 +123,43 @@
 
 
   "GENTLEMEN SONGSTERS" : {
-    "Activities (on Google Drive)" : {
+    "Activities &nbsp;(on Google Drive)" : {
       "level" : 1,
       "url" : "https://docs.google.com/spreadsheets/d/1Ip62cOuJnnc9xT-pTfbKNzysFVOhrSNcE3lCCLkw6L0"
     },
-    "Learning Media (on Google Drive)" : {
+    "Learning Media &nbsp;(on Google Drive)" : {
       "level" : 1,
       "url" : "https://drive.google.com/drive/folders/0B1v32eTWr2fWMlV3RFBpX21aYlE"
     },
-    "Secretary (on Google Drive)" : {
+    "Secretary &nbsp;(on Google Drive)" : {
       "level" : 1,
       "url" : "https://drive.google.com/drive/folders/0B1v32eTWr2fWa3VDR3pQc0FjTms"
     },
-    "Attendance Record (Google Sheets)" : {
+    "Attendance Record &nbsp;(in Google Sheets)" : {
       "level" : 2,
       "url" : "https://docs.google.com/spreadsheets/d/146Eu_QsaiAjgu8IshtUQVKijCMBvCAOpWydS9GTW0xI/edit?usp=sharing"
     },
-    "Google Voice (<em>then switch accounts</em>)" : {
+    "Google Voice &nbsp;(<em>then switch accounts</em>)" : {
       "level" : 2, 
       "url" : "https://voice.google.com/u/1/messages"
     },
-    "Google Gmail (<em>then switch accounts</em>)" : {
+    "Google Gmail &nbsp;(<em>then switch accounts</em>)" : {
       "level" : 2, 
       "url" : "https://mail.google.com/mail/u/1/#inbox"
     },
-    "Meeting Minutes" : {
+    "Meeting Minutes &nbsp;(on Google Drive)" : {
       "level" : 2, 
       "url" : "https://drive.google.com/drive/folders/1JIpqtZu9EAjg6mrVTtK0PUafFgwkvbyw"
     },
-    "Performance Request Form (Google Forms)" : {
+    "Performance Request Form &nbsp;(in Google Forms)" : {
       "level" : 2, 
       "url" : "https://docs.google.com/forms/d/1z1YsmUljZZXULbX3_jJ6hLO8QhdxhiTqRSc5bjTGd04/edit"
     },
-    "Treasurer (Google Drive)" : {
+    "Treasurer &nbsp;(on Google Drive)" : {
       "level" : 1, 
       "url" : "https://drive.google.com/drive/folders/1VmtOyaOtqvuu7uxDweHqca3YOJ-6ImCt"
     },
-    "Accounting Books (Google Sheets)" : {
+    "Accounting Books &nbsp;(in Google Sheets)" : {
       "level" : 2, 
       "url" : "https://docs.google.com/spreadsheets/d/1pkmI6q3ZamejlzTntU6rIvoJFhmPhJG1iChT0ay3EMo/edit#gid=1281312751"
     }
@@ -248,7 +248,7 @@
 
 
   "EMAIL ACCOUNTS" : {
-    "CS Webmail (<em>requires GlobalProtect</em>)" : {
+    "CS Webmail &nbsp;(<em>requires GlobalProtect</em>)" : {
       "level" : 1, 
       "url" : "http://webmail.cs.uml.edu"
     },
@@ -256,7 +256,7 @@
       "level" : 1, 
       "url" : "https://connect.xfinity.com/appsuite/#!!&app=io.ox/mail&folder=default0/INBOX"
     },
-    "JesseHeines.com (<em>may need to sign out first</em>)" : {
+    "JesseHeines.com &nbsp;(<em>may need to sign out first</em>)" : {
       "level" : 1, 
       "url" : "http://email.jesseheines.com"
     },

@@ -1,0 +1,208 @@
+/* assets/css/publications.css */
+/* added by Claude, 2026-11-19 15:10 -- Tasks/Tasks_2026-11-19.md Pass #1
+   Ported from Jesse's own Tasks/ExpandableAbstracts.css (originally
+   ~heines/css/ExpandableAbstracts.css on the production JSP site), scoped
+   under #mainbody since that's the id the ported research.html content
+   still uses in publications.html. Jesse asked that the ported content
+   use this page's existing base font-family/font-size, so no font rules
+   are set here -- #mainbody just inherits whatever global.css already
+   applies to .content-container/p on this page.
+
+   Expand/collapse functionality (jQuery-driven in the original
+   research.html) was NOT ported this pass -- this site has no jQuery.
+   Every abstract currently renders fully expanded; that's deferred to a
+   later pass per Jesse's own plan.
+
+   updated by Claude, 2026-11-19 15:40 -- Tasks/Tasks_2026-11-19.md Pass #2:
+   recolored the Show/Hide All Abstracts buttons and the per-section "Top"
+   links/per-entry carets to rgb(184, 89, 28); "Top" links and every
+   ExpandableAbstracts entry now use Bootstrap icons (caret-up/right-
+   square-fill) instead of text/background-images -- see .toplink and
+   .toplist-caret below. */
+
+#mainbody > ul {
+  margin-top: 20px;
+}
+
+#mainbody .ExpandableAbstracts li {
+  cursor: pointer;
+  list-style-type: none;
+  margin-top: 15px;
+  /* removed by Claude, 2026-11-19 15:40 -- Tasks/Tasks_2026-11-19.md
+     Pass #2: margin-left: -40px; background-repeat: no-repeat;
+     padding-left: 25px; -- these existed only to make room for and
+     position the old background-image arrow below, which Pass #2
+     replaced with an inline Bootstrap <i> icon (see .toplist-caret).
+     No longer needed now that nothing is drawn as a background-image. */
+}
+
+/* removed by Claude, 2026-11-19 15:40 -- Tasks/Tasks_2026-11-19.md
+   Pass #2: the per-entry open/closed state is now shown with the
+   .toplist-caret Bootstrap icon added in the markup (caret-right-square-
+   fill for every entry today; a later pass will swap it with caret-down-
+   square-fill when an entry is expanded -- see the Notes section of
+   Tasks/Tasks_2026-11-19.md). These two rules pointed at PNG arrows from
+   Jesse's old site -- he's deleted those PNGs (both the assets/img/
+   publications copies and the Tasks/ originals; assets/img/publications/
+   is gone too, now that it's empty) since Bootstrap icons replace them
+   going forward. Kept here, commented out, only as a record of the old
+   approach; the url()s below no longer resolve to anything.
+#mainbody .ExpandableAbstracts li.closed {
+  background-image: url(../img/publications/LucidaArrows193-Right-LightBlue_transparent_15x15.png);
+  background-position: 0px 0px;
+}
+
+#mainbody .ExpandableAbstracts li.open {
+  background-image: url(../img/publications/LucidaArrows193-Down-LightBlue_transparent_15x15.png);
+  background-position: 0px 0px;
+}
+*/
+
+#mainbody .ExpandableAbstracts li ul li {
+  margin-left: 0px;
+  margin-top: 0px;
+  background-image: none;
+  padding-left: 0px;
+}
+
+/* Expand All / Collapse All buttons */
+#mainbody .expandlink,
+#mainbody a.expandlink {
+  background-color: rgb(184, 89, 28); /* updated by Claude, 2026-11-19 15:40,
+                                          Tasks/Tasks_2026-11-19.md Pass #2:
+                                          was #09F (light blue) */
+  color: white;
+  border-bottom: 1px solid rgb(184, 89, 28); /* kept matching the new
+                                                 background, was #09F */
+  padding: 0px 0.75em;
+  font-size: 10pt;
+  font-weight: normal;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+#mainbody .expandlink:hover,
+#mainbody a.expandlink:hover {
+  color: #00F;
+  background-color: #0FF;
+  border-bottom: 1px solid #0FF;
+}
+
+#mainbody ul.bulleted li {
+  list-style-type: disc;
+}
+
+/* added by Claude, 2026-11-19 15:40 -- Tasks/Tasks_2026-11-19.md Pass #2 */
+
+/* "Please click the arrow..." note: match the reference text's own size
+   (this page sets no font-size of its own, so references render at the
+   browser/Bootstrap default of 1rem) instead of the browser's larger
+   default h3 size. */
+#mainbody .instructions-note {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+/* Per-section "Top" buttons (now an icon, not the word "Top") and the
+   icon that precedes every abstract entry, both using Jesse's chosen
+   accent color. */
+#mainbody .toplink {
+  color: rgb(184, 89, 28);
+  font-size: 1.3em;
+  text-decoration: none;
+}
+
+/* removed by Claude, 2026-11-21 11:10 -- Tasks/Tasks_2026-11-21.md Pass #1:
+   Jesse wants the caret to be each entry's actual list bullet (via ::before
+   on the <li>, below) rather than a literal <i> tag inside the text, which
+   is what this class was for. The markup no longer has any element with
+   this class on it.
+#mainbody .toplist-caret {
+  color: rgb(184, 89, 28);
+  margin-right: 4px;
+}
+*/
+
+/* updated by Claude, 2026-11-21 11:30 -- Tasks/Tasks_2026-11-21.md Pass #2:
+   Pass #1's version put the icon inline with the text, which isn't a real
+   hanging indent -- a wrapped second line of a long title hugged the
+   left edge instead of lining up under the first line's text (past the
+   icon). Jesse asked for this to work like a normal <ul> bullet: icon
+   flush with the left edge (same edge as the section <h3> above it, so
+   Bootstrap's default `padding-left: 2rem` on <ul> has to go), text
+   starts a fixed distance to its right, and any wrapped lines align with
+   that text start, not with the icon. Standard CSS technique: zero the
+   <ul>'s own padding, give each direct-child <li> room via its own
+   padding-left + position:relative, and absolutely position the ::before
+   icon at that <li>'s left edge (0,0) so it's out of the text flow
+   entirely -- the caret-right-square-fill icon is still each entry's own
+   list bullet (">" restricts this to direct children, so the nested
+   class="bulleted" sub-lists inside an entry's <blockquote> -- e.g. "Text
+   Version"/"Graphic Version" links -- correctly keep their own plain disc
+   bullet from the ul.bulleted li rule above instead of getting a caret). */
+#mainbody .ExpandableAbstracts {
+  padding-left: 0;
+}
+
+#mainbody .ExpandableAbstracts > li {
+  position: relative;
+  padding-left: 1.4em;
+}
+
+#mainbody .ExpandableAbstracts > li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: "bootstrap-icons" !important;
+  content: "\f232";
+  color: rgb(184, 89, 28);
+}
+
+/* Indent each entry's abstract 1.5em under its publication title, per
+   Jesse's Pass #1 request. Direct-child selector again, for the same
+   reason as above (only the entry's own top-level blockquote(s), not any
+   blockquote nested somewhere else). */
+#mainbody .ExpandableAbstracts > li > blockquote {
+  margin-left: 1.5em;
+}
+
+/* First-line indent convention Jesse already hand-authored into the
+   ported content: a <p> with no extra class is the first paragraph in its
+   blockquote (no indent); a <p class="... indent"> is a later paragraph in
+   that same blockquote (indented 1.5em on its first line only -- a true
+   text-indent, not a block margin, per his spec). */
+#mainbody .indent {
+  text-indent: 1.5em;
+}
+
+/* added by Claude, 2026-11-21 11:40 -- Tasks/Tasks_2026-11-21.md Pass #3:
+   the 3 standalone <blockquote>s that are direct children of #mainbody
+   (each wraps an <h4 class="nobot"> + its own nested <ul
+   class="ExpandableAbstracts">, e.g. "Related Article About the Trip to
+   Ghana Itself") weren't covered by the Pass #1 blockquote-indent rule --
+   that one only matched a blockquote nested inside an entry's own <li>.
+   Same 1.5em so they line up with the abstract text above them. */
+#mainbody > blockquote {
+  margin-left: 1.5em;
+}
+
+/* Bootstrap's heading reset drops h4 to font-weight: 500 and a larger
+   fluid size -- Jesse wants these sub-headings sized like the page's own
+   body text but still visibly bold. */
+#mainbody > blockquote h4.nobot {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* added by Claude, 2026-11-21 11:55 -- Tasks/Tasks_2026-11-21.md Pass #4:
+   global.css's sitewide `a { color: var(--bright-accent); }` (a bare type
+   selector) was too light against this page's white background -- Jesse
+   asked for every link in the ported content to use the same accent color
+   as the caret/Top-button icons. #mainbody's id beats that bare type
+   selector regardless of source order, and still loses to the more
+   specific `.expandlink`/`.toplink` rules above (which need their own
+   colors -- .expandlink is white text on an orange background), so
+   nothing else here needs to change. */
+#mainbody a {
+  color: rgb(184, 89, 28);
+}
