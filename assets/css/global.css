@@ -1,4 +1,13 @@
 :root {
+  /* added by Claude, 2026-11-22 10:10 -- Tasks/Tasks_2026-11-22.md Pass #1:
+     overrides Bootstrap's own --bs-body-line-height: 1.5 (set in
+     bootstrap.min.css's :root, which loads before this file) -- Jesse
+     wanted tighter sitewide line spacing. Bootstrap's own `body` rule
+     uses `line-height: var(--bs-body-line-height)`, so redefining the
+     variable here (rather than editing the vendor file) is enough.
+     updated by Claude, 2026-11-22 10:21, Pass #2: 1 was too tight -> 1.25. */
+  --bs-body-line-height: 1.25;
+
   /* =========================
      Fonts
      ========================= */

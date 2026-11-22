@@ -332,7 +332,12 @@ global.css, untouched here.
 
 #jmh-about-me {
   font-family: var(--default-font);
-  font-size: 10pt;
+  font-size: var(--bs-body-font-size); /* updated by Claude, 2026-11-22 10:10,
+                                           Tasks/Tasks_2026-11-22.md Pass #1:
+                                           was 10pt -- Jesse wanted this to
+                                           match publications.html's #mainbody,
+                                           which never overrides this Bootstrap
+                                           default (1rem). */
 }
 
 #jmh-about-me p {

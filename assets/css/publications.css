@@ -75,18 +75,28 @@
   border-bottom: 1px solid rgb(184, 89, 28); /* kept matching the new
                                                  background, was #09F */
   padding: 0px 0.75em;
-  font-size: 10pt;
+  font-family: var(--default-font); /* added by Claude, 2026-11-22 10:10,
+                                         Tasks/Tasks_2026-11-22.md Pass #1 */
+  font-size: var(--bs-body-font-size); /* updated by Claude, 2026-11-22 10:10,
+                                           Pass #1: was 10pt -- Jesse wanted
+                                           this to match the rest of the page */
   font-weight: normal;
   text-decoration: none;
   border-radius: 3px;
 }
 
+/* removed by Claude, 2026-11-22 10:21 -- Tasks/Tasks_2026-11-22.md Pass #2:
+   Jesse tried the Pass #1 darkened-orange hover and decided he'd rather
+   have NO hover style change at all here -- just the default cursor:pointer
+   an <a> already gets, same as everywhere else. Commented out rather than
+   deleted in case he wants a hover effect back later.
 #mainbody .expandlink:hover,
 #mainbody a.expandlink:hover {
-  color: #00F;
-  background-color: #0FF;
-  border-bottom: 1px solid #0FF;
+  color: white;
+  background-color: color-mix(in srgb, rgb(184, 89, 28), black 20%);
+  border-bottom: 1px solid color-mix(in srgb, rgb(184, 89, 28), black 20%);
 }
+*/
 
 #mainbody ul.bulleted li {
   list-style-type: disc;
@@ -108,7 +118,8 @@
    accent color. */
 #mainbody .toplink {
   color: rgb(184, 89, 28);
-  font-size: 1.3em;
+  font-size: 1em; /* updated by Claude, 2026-11-21 21:45, Tasks/Tasks_2026-11-21.md
+                      Pass #5: was 1.3em -- Jesse felt it was too large */
   text-decoration: none;
 }
 
@@ -205,4 +216,16 @@
    nothing else here needs to change. */
 #mainbody a {
   color: rgb(184, 89, 28);
+}
+
+/* added by Claude, 2026-11-21 21:45 -- Tasks/Tasks_2026-11-21.md Pass #5:
+   the Personal Writing entries are plain <p> tags (this section predates
+   the <ul class="ExpandableAbstracts"> treatment used everywhere else),
+   so they never picked up the 15px margin-top that
+   `#mainbody .ExpandableAbstracts li` gives every other entry. `~` matches
+   any later sibling of the "personal" heading at the same level, which
+   covers every entry in this last section without needing to touch the
+   markup. */
+#mainbody h3#personal ~ p {
+  margin-top: 15px;
 }

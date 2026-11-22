@@ -36,11 +36,12 @@
 }
 
 .links-item a {
-  color: rgb(143, 37, 12); /* updated by Claude, 2026-11-18 21:54, Tasks/Tasks_2026-11-18.md
-                               Pass #3: was var(--accent-color) -- Jesse asked for a
-                               darker default link color (matching the nav bar's
-                               background) for more contrast against the light page
-                               background. */
+  color: rgb(184, 89, 28); /* updated by Claude, 2026-11-22 10:10, Tasks/Tasks_2026-11-22.md
+                               Pass #1: was rgb(143, 37, 12) -- Jesse prefers the link
+                               color he's using on publications.html (same value as
+                               publications.css) over this page's original darker shade;
+                               he's said he's still experimenting with colors and will
+                               make them consistent across pages eventually. */
   text-decoration: none;
   transition: color 0.3s;
 }
