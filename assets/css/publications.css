@@ -18,14 +18,41 @@
    links/per-entry carets to rgb(184, 89, 28); "Top" links and every
    ExpandableAbstracts entry now use Bootstrap icons (caret-up/right-
    square-fill) instead of text/background-images -- see .toplink and
-   .toplist-caret below. */
+   .toplist-caret below.
+
+   updated by Claude, 2026-11-23 11:05 -- Tasks/Tasks_2026-11-23.md Pass #1:
+   recolored the caret-right-square-fill (.toplist bullet) and
+   caret-up-square-fill (.toplink) icons, and the Show/Hide All Abstracts
+   buttons (.expandlink), from rgb(184, 89, 28) to rgb(0, 185, 0); also
+   made .expandlink bold.
+
+   updated by Claude, 2026-11-23 11:29 -- Tasks/Tasks_2026-11-23.md Pass #2:
+   first real expand/collapse interactivity for individual entries (see
+   assets/js/publications.js). Abstracts are hidden by default and slide
+   open via a max-height transition on the entry's own <blockquote>; the
+   per-entry caret swaps from caret-right-square-fill to caret-down-
+   square-fill while open. Removed the old `cursor: pointer` that applied
+   to every element inside every entry (abstract text included) -- only
+   the caret icon itself is clickable/pointer now. Expand All/Collapse
+   All (.expandlink) are NOT wired up yet -- still inert, deferred.
+
+   updated by Claude, 2026-11-23 12:10 -- Tasks/Tasks_2026-11-23.md Pass #3:
+   defined .notop/.nobot/.notopbot (Jesse's ported content uses these
+   classes throughout but they were never actually given any CSS -- see
+   the rules themselves, below, for why that mattered); indented a
+   blockquote nested directly inside another blockquote; wired up Show
+   All Abstracts (#ExpandAll) and Hide All Abstracts (#CollapseAll). */
 
 #mainbody > ul {
   margin-top: 20px;
 }
 
 #mainbody .ExpandableAbstracts li {
-  cursor: pointer;
+  /* cursor: pointer; removed by Claude, 2026-11-23 11:29 -- Tasks/Tasks_2026-11-23.md
+     Pass #2: cursor is inherited, so this made EVERY element inside every
+     entry -- the abstract text, non-link title words, everything -- show a
+     pointer cursor even though almost none of it is clickable. Only the
+     caret icon should look clickable now; see its own cursor rule below. */
   list-style-type: none;
   margin-top: 15px;
   /* removed by Claude, 2026-11-19 15:40 -- Tasks/Tasks_2026-11-19.md
@@ -68,19 +95,21 @@
 /* Expand All / Collapse All buttons */
 #mainbody .expandlink,
 #mainbody a.expandlink {
-  background-color: rgb(184, 89, 28); /* updated by Claude, 2026-11-19 15:40,
-                                          Tasks/Tasks_2026-11-19.md Pass #2:
-                                          was #09F (light blue) */
+  background-color: rgb(0, 185, 0); /* updated by Claude, 2026-11-23 11:05,
+                                        Tasks/Tasks_2026-11-23.md Pass #1:
+                                        was rgb(184, 89, 28) (the orange
+                                        accent) */
   color: white;
-  border-bottom: 1px solid rgb(184, 89, 28); /* kept matching the new
-                                                 background, was #09F */
+  border-bottom: 1px solid rgb(0, 185, 0); /* kept matching the new
+                                               background, was rgb(184, 89, 28) */
   padding: 0px 0.75em;
   font-family: var(--default-font); /* added by Claude, 2026-11-22 10:10,
                                          Tasks/Tasks_2026-11-22.md Pass #1 */
   font-size: var(--bs-body-font-size); /* updated by Claude, 2026-11-22 10:10,
                                            Pass #1: was 10pt -- Jesse wanted
                                            this to match the rest of the page */
-  font-weight: normal;
+  font-weight: bold; /* updated by Claude, 2026-11-23 11:05, Tasks/Tasks_2026-11-23.md
+                         Pass #1: was normal */
   text-decoration: none;
   border-radius: 3px;
 }
@@ -117,7 +146,8 @@
    icon that precedes every abstract entry, both using Jesse's chosen
    accent color. */
 #mainbody .toplink {
-  color: rgb(184, 89, 28);
+  color: rgb(0, 185, 0); /* updated by Claude, 2026-11-23 11:05, Tasks/Tasks_2026-11-23.md
+                             Pass #1: was rgb(184, 89, 28) */
   font-size: 1em; /* updated by Claude, 2026-11-21 21:45, Tasks/Tasks_2026-11-21.md
                       Pass #5: was 1.3em -- Jesse felt it was too large */
   text-decoration: none;
@@ -166,7 +196,18 @@
   top: 0;
   font-family: "bootstrap-icons" !important;
   content: "\f232";
-  color: rgb(184, 89, 28);
+  color: rgb(0, 185, 0); /* updated by Claude, 2026-11-23 11:05, Tasks/Tasks_2026-11-23.md
+                             Pass #1: was rgb(184, 89, 28) */
+  cursor: pointer; /* added by Claude, 2026-11-23 11:29, Tasks/Tasks_2026-11-23.md
+                       Pass #2: this icon is the only clickable part of an
+                       entry -- see assets/js/publications.js */
+}
+
+/* added by Claude, 2026-11-23 11:29 -- Tasks/Tasks_2026-11-23.md Pass #2:
+   publications.js toggles the "open" class on an entry's <li> when its
+   caret icon is clicked. */
+#mainbody .ExpandableAbstracts > li.open::before {
+  content: "\f22a"; /* caret-down-square-fill */
 }
 
 /* Indent each entry's abstract 1.5em under its publication title, per
@@ -174,6 +215,56 @@
    reason as above (only the entry's own top-level blockquote(s), not any
    blockquote nested somewhere else). */
 #mainbody .ExpandableAbstracts > li > blockquote {
+  margin-left: 1.5em;
+  overflow: hidden; /* added by Claude, 2026-11-23 11:29, Tasks/Tasks_2026-11-23.md Pass #2 */
+  max-height: 0; /* added by Claude, 2026-11-23 11:29, Pass #2: abstracts are
+                     hidden by default now -- publications.js adds the
+                     .open class below to reveal one */
+  transition: max-height 0.4s ease; /* added by Claude, 2026-11-23 11:29,
+                                         Pass #2: the sliding-open effect
+                                         Jesse asked for */
+}
+
+/* added by Claude, 2026-11-23 11:29 -- Tasks/Tasks_2026-11-23.md Pass #2:
+   large enough to clear any abstract's full rendered height -- the
+   standard CSS-only accordion technique, needed because you can't
+   transition max-height to "none"/"auto". */
+#mainbody .ExpandableAbstracts > li.open > blockquote {
+  max-height: 3000px;
+}
+
+/* added by Claude, 2026-11-23 12:10 -- Tasks/Tasks_2026-11-23.md Pass #3:
+   the ported content uses these class names throughout (on <blockquote>,
+   <p>, <ul>, <li>, <h4>) but they were never actually defined until now.
+   Bootstrap's reboot already zeroes margin-top on <blockquote>/<p>/<ul>
+   by default, which is why ".notop" looked like it was already doing
+   something; margin-bottom (1rem by Bootstrap default) was never
+   suppressed by ".nobot"/".notopbot" though, and that stray bottom
+   margin is what created visible gaps between elements that were
+   supposed to sit flush together. Margin lives outside an element's own
+   box, so it also isn't clipped by the max-height/overflow:hidden
+   collapse trick above -- that's why the gap kept showing even while an
+   abstract was closed. */
+#mainbody .notop {
+  margin-top: 0;
+}
+
+#mainbody .nobot {
+  margin-bottom: 0;
+}
+
+#mainbody .notopbot {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* added by Claude, 2026-11-23 12:10 -- Tasks/Tasks_2026-11-23.md Pass #3:
+   one entry (Heines, Olsen & Bowker, 1984) has a <blockquote> nested
+   directly inside another <blockquote> (a "Note:" aside embedded in the
+   entry's main abstract) -- generic rule so any blockquote nested this
+   way gets its own extra indent, rather than hand-indenting just this
+   one entry. */
+#mainbody blockquote > blockquote {
   margin-left: 1.5em;
 }
 
@@ -216,6 +307,8 @@
    nothing else here needs to change. */
 #mainbody a {
   color: rgb(184, 89, 28);
+  font-weight: 500; /* added by Claude, 2026-11-23 11:29, Tasks/Tasks_2026-11-23.md
+                        Pass #2 */
 }
 
 /* added by Claude, 2026-11-21 21:45 -- Tasks/Tasks_2026-11-21.md Pass #5:

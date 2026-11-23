@@ -77,6 +77,7 @@
   <script src="assets/js/index-preferences.js" defer></script>
   <script src="assets/js/navigation.js" defer></script>
   <script src="assets/js/navigation-content.js" defer></script>
+  <script src="assets/js/publications.js" defer></script> <!-- added by Claude, 2026-11-23 11:29 -- Tasks/Tasks_2026-11-23.md Pass #2 -->
 </head>
 
 <body class="publications-page">
@@ -99,9 +100,16 @@
          minimal changes. This intentionally does NOT yet port the
          expand/collapse-abstract jQuery from research.html's own
          <script> block -- this site has no jQuery, and Jesse said
-         we'd add styling and functionality in a later pass. Right
-         now every abstract renders fully expanded, and the Show/Hide
-         All Abstracts links and per-entry arrows are inert (href="#"). -->
+         we'd add styling and functionality in a later pass.
+
+         updated by Claude, 2026-11-23 11:29 -- Tasks/Tasks_2026-11-23.md
+         Pass #2: per-entry caret clicks now really expand/collapse that
+         entry's abstract (see assets/css/publications.css and
+         assets/js/publications.js); abstracts are hidden by default.
+
+         updated by Claude, 2026-11-23 12:10 -- Tasks/Tasks_2026-11-23.md
+         Pass #3: Show All Abstracts / Hide All Abstracts
+         (#ExpandAll/#CollapseAll) now really open/close every entry. -->
     <section class="publications section">
       <div class="content-container">
         <div id="mainbody">
@@ -133,8 +141,10 @@
           POST-RETIREMENT PROJECTS AND PRESENTATIONS
          = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 
-        <h3 id="talks">
-          Post-Retirement Projects and Presentations &nbsp; &nbsp; 
+        <h3 id="talks"><br> <!-- added by Claude, 2026-11-23 11:29 -- Tasks/Tasks_2026-11-23.md
+          Pass #2: every other h3 heading on this page starts with <br> for
+          consistent spacing; this one was missing it -->
+          Post-Retirement Projects and Presentations &nbsp; &nbsp;
           <a href="#" id="TopLink4" class="toplink nobold"><i class="bi bi-caret-up-square-fill"></i></a></h3>
 
         <ul class="ExpandableAbstracts">

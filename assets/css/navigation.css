@@ -207,6 +207,18 @@
   color: var(--nav-color);
 }
 
+/* added by Claude, 2026-11-23 11:05 -- Tasks/Tasks_2026-11-23.md Pass #1:
+   Jesse wants his email address bolder than the italicized "email" label
+   above it. global.css's `p, a, li, span { font-weight: 400; }` sets that
+   weight directly on the <a> itself, which (per the same rule learned
+   fixing publications.html's bold titles) always wins over an inherited
+   weight from the <strong id="contact-email"> wrapping it -- so the fix
+   has to target the <a> directly, same as there. The "email" <em> label
+   is untouched and keeps its default (normal) weight. */
+#contact-email a {
+  font-weight: 800;
+}
+
 /* Hide mobile nav toggle if not needed */
 .mobile-nav-toggle {
   display: none;
