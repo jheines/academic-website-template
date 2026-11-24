@@ -20,7 +20,11 @@
 
    updated by Claude, 2026-11-23 12:10 -- Tasks/Tasks_2026-11-23.md Pass #3:
    added the Show All Abstracts / Hide All Abstracts (#ExpandAll /
-   #CollapseAll) button handlers. */
+   #CollapseAll) button handlers.
+
+   updated by Claude, 2026-11-24 11:42 -- Tasks/Tasks_2026-11-24.md Pass #1:
+   clicking an entry's .clickable-title (currently just one entry -- see
+   publications.css) now also toggles it, same as clicking its caret. */
 
 (function () {
   function isCaretClick(li, evt) {
@@ -38,7 +42,11 @@
 
   document.querySelectorAll('#mainbody .ExpandableAbstracts > li').forEach(function (li) {
     li.addEventListener('click', function (evt) {
-      if (isCaretClick(li, evt)) {
+      // added by Claude, 2026-11-24 11:42 -- Tasks/Tasks_2026-11-24.md Pass #1:
+      // one entry ("Row, Row, Row..." Progressive Example Series) has no link
+      // of its own, so Jesse asked for its title text itself to also act as a
+      // toggle, same as the caret icon.
+      if (isCaretClick(li, evt) || evt.target.closest('.clickable-title')) {
         li.classList.toggle('open');
       }
     });

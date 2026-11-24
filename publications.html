@@ -131,7 +131,10 @@
         </p>
 
         <h3 class="instructions-note"><br>
-          <em>Please click the arrow preceding each entry to show or hide its abstract and links to additional resources.</em></h3>
+          <em>Please click the <i class="bi bi-caret-right-square-fill"></i> arrow button preceding each entry to show or hide its abstract and links to additional resources.</em></h3>
+          <!-- updated by Claude, 2026-11-24 11:42 -- Tasks/Tasks_2026-11-24.md Pass #1:
+               added "button" and a real caret-right-square-fill icon after it, so this
+               note shows the actual button users need to click, not just describes it. -->
         <h3>
           <a href="#" id="ExpandAll" class="expandlink nowrap">Show All Abstracts</a>  &nbsp;&nbsp; 
           <a href="#" id="CollapseAll" class="expandlink nowrap">Hide All Abstracts</a>  
@@ -2215,7 +2218,15 @@
             </blockquote>
           </li>
           <li class="nobot closed">
-            <strong class="colorLinkBlue">&ldquo;Row, Row, Row Your Boat&rdquo; Progressive Example Series</strong>.&nbsp;
+            <!-- updated by Claude, 2026-11-24 11:42 -- Tasks/Tasks_2026-11-24.md
+                 Pass #1: was class="colorLinkBlue", an undefined class left over
+                 from Jesse's old site (safe to drop -- never had any CSS rule).
+                 This entry has no <a> link of its own (the "progressive examples"
+                 are listed inside its abstract instead), so Jesse asked for an
+                 exception here: the title itself is now also a click target that
+                 opens/closes the abstract, same as the caret icon -- see
+                 .clickable-title in publications.css and publications.js. -->
+            <strong class="clickable-title">&ldquo;Row, Row, Row Your Boat&rdquo; Progressive Example Series</strong>.&nbsp;
             August 2010.
             <blockquote class="notopbot">
               <p class="notopbot">Demonstration of increasing complexity in music and computing.</p>

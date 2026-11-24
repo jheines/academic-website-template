@@ -41,7 +41,15 @@
    classes throughout but they were never actually given any CSS -- see
    the rules themselves, below, for why that mattered); indented a
    blockquote nested directly inside another blockquote; wired up Show
-   All Abstracts (#ExpandAll) and Hide All Abstracts (#CollapseAll). */
+   All Abstracts (#ExpandAll) and Hide All Abstracts (#CollapseAll).
+
+   updated by Claude, 2026-11-24 11:42 -- Tasks/Tasks_2026-11-24.md Pass #1:
+   doubled the abstract slide-open transition (0.4s -> 0.8s); gave the open
+   (caret-down-square-fill) icon its own color, rgb(184, 89, 28), so it's
+   easier to tell apart from the closed (caret-right-square-fill) icon's
+   rgb(0, 185, 0); added .clickable-title for the one entry with no <a> of
+   its own ("Row, Row, Row..." Progressive Example Series); colored the
+   instructions-note's new caret icon to match the real closed-caret. */
 
 #mainbody > ul {
   margin-top: 20px;
@@ -142,6 +150,13 @@
   font-weight: normal;
 }
 
+/* added by Claude, 2026-11-24 11:42 -- Tasks/Tasks_2026-11-24.md Pass #1:
+   matches the real closed-entry caret color so this note's icon actually
+   looks like the button it's pointing to. */
+#mainbody .instructions-note .bi-caret-right-square-fill {
+  color: rgb(0, 185, 0);
+}
+
 /* Per-section "Top" buttons (now an icon, not the word "Top") and the
    icon that precedes every abstract entry, both using Jesse's chosen
    accent color. */
@@ -208,6 +223,11 @@
    caret icon is clicked. */
 #mainbody .ExpandableAbstracts > li.open::before {
   content: "\f22a"; /* caret-down-square-fill */
+  color: rgb(184, 89, 28); /* added by Claude, 2026-11-24 11:42, Tasks/Tasks_2026-11-24.md
+                               Pass #1: was still rgb(0, 185, 0) (inherited from the
+                               closed-state rule above) -- Jesse felt the closed/open
+                               icons were too hard to tell apart at that small size,
+                               so the open (caret-down) state now gets its own color */
 }
 
 /* Indent each entry's abstract 1.5em under its publication title, per
@@ -220,9 +240,10 @@
   max-height: 0; /* added by Claude, 2026-11-23 11:29, Pass #2: abstracts are
                      hidden by default now -- publications.js adds the
                      .open class below to reveal one */
-  transition: max-height 0.4s ease; /* added by Claude, 2026-11-23 11:29,
-                                         Pass #2: the sliding-open effect
-                                         Jesse asked for */
+  transition: max-height 0.8s ease; /* updated by Claude, 2026-11-24 11:42,
+                                         Tasks/Tasks_2026-11-24.md Pass #1:
+                                         was 0.4s -- Jesse wanted the slide-
+                                         open animation twice as slow */
 }
 
 /* added by Claude, 2026-11-23 11:29 -- Tasks/Tasks_2026-11-23.md Pass #2:
@@ -309,6 +330,18 @@
   color: rgb(184, 89, 28);
   font-weight: 500; /* added by Claude, 2026-11-23 11:29, Tasks/Tasks_2026-11-23.md
                         Pass #2 */
+}
+
+/* added by Claude, 2026-11-24 11:42 -- Tasks/Tasks_2026-11-24.md Pass #1:
+   one entry ("Row, Row, Row Your Boat" Progressive Example Series) has no
+   <a> link of its own -- its title is plain bold text, which is logically
+   correct (clicking it does nothing but open the abstract) but looked odd
+   in plain black. Jesse asked for an exception: color it the same as every
+   other (real) title/link, and make the title itself clickable to
+   open/close the abstract too, same as the caret -- see publications.js. */
+#mainbody .clickable-title {
+  color: rgb(184, 89, 28);
+  cursor: pointer;
 }
 
 /* added by Claude, 2026-11-21 21:45 -- Tasks/Tasks_2026-11-21.md Pass #5:
