@@ -24,7 +24,14 @@
 
    updated by Claude, 2026-11-24 11:42 -- Tasks/Tasks_2026-11-24.md Pass #1:
    clicking an entry's .clickable-title (currently just one entry -- see
-   publications.css) now also toggles it, same as clicking its caret. */
+   publications.css) now also toggles it, same as clicking its caret.
+
+   updated by Claude, 2026-11-25 13:21 -- Tasks/Tasks_2026-11-25.md Pass #2:
+   switched from a fixed-large-value max-height (CSS) to a per-entry
+   measured one (here) -- see setEntryOpen() and the removed CSS rule's
+   comment in publications.css for why the fixed value broke the timing
+   Jesse asked for in Pass #1 (looked instant on open, delayed on close,
+   regardless of the transition duration). */
 
 (function () {
   function isCaretClick(li, evt) {
@@ -40,6 +47,22 @@
     return x >= 0 && x <= iconWidth && y >= 0 && y <= iconHeight;
   }
 
+  // added by Claude, 2026-11-25 13:21 -- Tasks/Tasks_2026-11-25.md Pass #2:
+  // sets max-height to each of the entry's own direct-child blockquotes'
+  // real scrollHeight (not a guessed-large value) so the CSS transition
+  // animates the entry's whole visible range, immediately, for the full
+  // duration -- both directions. querySelectorAll, not querySelector: one
+  // entry (Heines, Olsen & Bowker, 1984) has two direct-child <blockquote>s
+  // on the same <li>, and each needs its own correct measured height.
+  function setEntryOpen(li, open) {
+    var blockquotes = li.querySelectorAll(':scope > blockquote');
+    if (!blockquotes.length) return;
+    blockquotes.forEach(function (blockquote) {
+      blockquote.style.maxHeight = open ? blockquote.scrollHeight + 'px' : '0px';
+    });
+    li.classList.toggle('open', open);
+  }
+
   document.querySelectorAll('#mainbody .ExpandableAbstracts > li').forEach(function (li) {
     li.addEventListener('click', function (evt) {
       // added by Claude, 2026-11-24 11:42 -- Tasks/Tasks_2026-11-24.md Pass #1:
@@ -47,7 +70,7 @@
       // of its own, so Jesse asked for its title text itself to also act as a
       // toggle, same as the caret icon.
       if (isCaretClick(li, evt) || evt.target.closest('.clickable-title')) {
-        li.classList.toggle('open');
+        setEntryOpen(li, !li.classList.contains('open'));
       }
     });
   });
@@ -59,7 +82,7 @@
   // through the abstracts in place.
   function setAllOpen(open) {
     document.querySelectorAll('#mainbody .ExpandableAbstracts > li').forEach(function (li) {
-      li.classList.toggle('open', open);
+      setEntryOpen(li, open);
     });
   }
 

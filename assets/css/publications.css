@@ -246,13 +246,23 @@
                                          open animation twice as slow */
 }
 
-/* added by Claude, 2026-11-23 11:29 -- Tasks/Tasks_2026-11-23.md Pass #2:
-   large enough to clear any abstract's full rendered height -- the
-   standard CSS-only accordion technique, needed because you can't
-   transition max-height to "none"/"auto". */
-#mainbody .ExpandableAbstracts > li.open > blockquote {
-  max-height: 3000px;
-}
+/* removed by Claude, 2026-11-25 13:21 -- Tasks/Tasks_2026-11-25.md Pass #2:
+   this was the standard CSS-only accordion technique -- transition
+   max-height to one large fixed value, since you can't transition to
+   "none"/"auto" -- but it broke the timing Jesse asked for in Pass #1.
+   A fixed 3000px ceiling is wildly larger than most abstracts' real
+   height (often under 300px), and a CSS transition interpolates max-height
+   LINEARLY over the full 0.8s regardless of how tall the content actually
+   is. So on open, the box reached its real (small) height within a tiny
+   fraction of the 0.8s -- looking instant -- then kept "animating"
+   max-height past that point with no visible effect for the rest of the
+   0.8s. On close, max-height had to count down from 3000 to the content's
+   real height first (with nothing visibly changing -- the "small delay"
+   Jesse saw) before the actual visible shrink happened, squeezed into
+   whatever time was left. Fixed in publications.js instead: it measures
+   each blockquote's real `scrollHeight` and sets max-height to that exact
+   pixel value (not a guess) when opening, so the full 0.8s is genuinely
+   spent animating the whole real visible range, both directions. */
 
 /* added by Claude, 2026-11-23 12:10 -- Tasks/Tasks_2026-11-23.md Pass #3:
    the ported content uses these class names throughout (on <blockquote>,
