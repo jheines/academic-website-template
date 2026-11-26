@@ -59,10 +59,14 @@ function handleResponsiveNavigation() {
 // search string contains "jesse" (e.g. ?jesse), not just on localhost.
 function showDevOnlyNavItems() {
   const host = window.location.hostname;
-  const isLocalhost = host === "localhost" || host === "127.0.0.1" || 
-      host.startsWith( "10.0.0" ) ; // added by JMH. 2026-11-26 08:16 
+  const isLocalhost = host === "localhost" || host === "127.0.0.1";
+  // split into its own const by Claude, 2026-11-26 09:05 -- Tasks/Tasks_2026-11-26.md
+  // Pass #1, at JMH's request: this covers viewing the site from one home
+  // system while it's served from another home system on the same LAN
+  // (e.g. testing on an iPhone over home wireless) -- added by JMH, 2026-11-26 08:16
+  const isLANhost = host.startsWith("10.0.0");
   const hasJesseParam = window.location.search.includes("jesse");
-  if (isLocalhost || hasJesseParam) {
+  if (isLocalhost || isLANhost || hasJesseParam) {
     document.querySelectorAll(".nav-dev-only").forEach((el) => {
       el.classList.remove("nav-dev-only");
     });
@@ -76,11 +80,18 @@ function showDevOnlyNavItems() {
 // navigation.html is already the correct production URL, and this
 // function only ever REWRITES it for the localhost case, so a slow/failed
 // script run just leaves the production link in place everywhere else.
+// -- updated by Claude, 2026-11-26 09:05 -- Tasks/Tasks_2026-11-26.md Pass #1:
+// JMH asked that any system OTHER than GitHub Pages (jheines.github.io) or
+// production (jesseheines.com) point Photographs at /Pictures/Version2022
+// instead -- not just localhost, but any other home/LAN system too. Still
+// fails safe the same way: the two production hosts are the only ones left
+// untouched, and the baked-in href is already correct for them.
 function setPhotographsLinkHref() {
   const host = window.location.hostname;
-  if (host === "localhost" || host === "127.0.0.1") {
+  const isProductionHost = host === "jheines.github.io" || host === "jesseheines.com";
+  if (!isProductionHost) {
     const link = document.getElementById("nav-photographs-link");
-    if (link) link.href = `${window.location.protocol}//${window.location.host}/pictures`;
+    if (link) link.href = `${window.location.protocol}//${window.location.host}/Pictures/Version2022`;
   }
 }
 
