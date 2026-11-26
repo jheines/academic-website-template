@@ -59,7 +59,8 @@ function handleResponsiveNavigation() {
 // search string contains "jesse" (e.g. ?jesse), not just on localhost.
 function showDevOnlyNavItems() {
   const host = window.location.hostname;
-  const isLocalhost = host === "localhost" || host === "127.0.0.1";
+  const isLocalhost = host === "localhost" || host === "127.0.0.1" || 
+      host.startsWith( "10.0.0" ) ; // added by JMH. 2026-11-26 08:16 
   const hasJesseParam = window.location.search.includes("jesse");
   if (isLocalhost || hasJesseParam) {
     document.querySelectorAll(".nav-dev-only").forEach((el) => {
