@@ -340,7 +340,9 @@ span {
   content: "";
   position: absolute;
   display: block;
-  width: 50px;
+  width: 150px; /* updated by Claude, 2026-11-27 -- Tasks/Tasks_2026-11-27.md
+                    Pass #4: 50px -> 150px (tripled), per Jesse's request;
+                    stays centered via left: 50% + transform below. */
   height: 3px;
   background: var(--bright-accent);
   left: 50%;

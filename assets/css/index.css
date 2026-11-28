@@ -657,3 +657,63 @@ global.css, untouched here.
   vertical-align: middle;
 }
 
+/*--------------------------------------------------------------
+# Activities and Projects Section (#activities)
+added by Claude, 2026-11-27 -- Tasks/Tasks_2026-11-27.md Pass #1: a grid
+of clickable Bootstrap cards (one per activity/project), each linking
+out to another site in a new tab. Images vary in native size, so
+.activity-card-img normalizes every image to a 100px height (per
+Jesse's spec) while leaving width free to vary with aspect ratio;
+object-fit: contain avoids cropping or distorting any of them.
+--------------------------------------------------------------*/
+.activity-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: transform 0.2s ease;
+}
+
+.activity-card:hover {
+  transform: translateY(-4px);
+  color: var(--bright-accent);
+}
+
+.activity-card-img {
+  height: 100px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 8px; /* per Jesse's spec, Tasks_2026-11-27.md Pass #1 */
+  box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.75); /* per Jesse's spec */
+}
+
+/* added by Claude, 2026-11-27 -- Tasks/Tasks_2026-11-27.md Pass #3: a few
+   logos read as cramped right up against the edges of their 100px-tall
+   box, so JMH asked for a little breathing room on those three. Bootstrap's
+   global box-sizing: border-box (see bootstrap.min.css reboot) means this
+   padding eats into the image's own content area rather than growing the
+   box past 100px tall, so "overall card height stays 100px" falls out for
+   free -- no extra height math needed here. */
+.activity-card-img--pad-7 {
+  padding: 7px;
+}
+
+.activity-card-img--pad-5 {
+  padding: 5px;
+}
+
+.activity-card .card-body {
+  padding: 0.75rem 0.5rem 0;
+  text-align: center;
+}
+
+.activity-card .card-title {
+  margin-bottom: 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+

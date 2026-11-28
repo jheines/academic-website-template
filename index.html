@@ -108,6 +108,13 @@
          left/right padding/margin as every other section, per Jesse's
          request. -->
     <section id="mywork" class="about section alt-section" data-aos="fade-up">
+      <!-- added by Claude, 2026-11-27 -- Tasks/Tasks_2026-11-27.md Pass #4,
+           per Jesse's request: restores a title to this section, now that
+           the Activities and Projects section right below it has one and
+           the lack of one here started to look inconsistent. -->
+      <div class="container section-title">
+        <h2>About Me</h2>
+      </div>
       <div class="content-container">
         <div id="jmh-about-me">
           <p>After 2 years teaching
@@ -203,6 +210,161 @@
       </div>
     </section>
     -->
+
+    <!-- added by Claude, 2026-11-27 -- Tasks/Tasks_2026-11-27.md Pass #1:
+         new "Activities and Projects" section of clickable Bootstrap
+         cards, each linking out to another site in a new tab. Each
+         card's image is normalized to a 100px height via
+         .activity-card-img in index.css (widths vary); border-radius
+         and box-shadow on the image are also set there, per Jesse's
+         spec. -->
+    <!-- updated by Claude, 2026-11-27 -- Tasks/Tasks_2026-11-27.md Pass #2:
+         dropped alt-section (JMH wanted this section's background
+         visually distinct from the About Me section just above it,
+         which is itself an alt-section; the plain .section background
+         already differs from alt-section's washed tint, and unlike a
+         hardcoded "white" it still respects light/dark theming). -->
+    <section id="activities" class="activities section" data-aos="fade-up">
+      <div class="container section-title">
+        <h2>Activities and Projects</h2>
+      </div>
+      <div class="content-container">
+        <div class="row g-4 justify-content-center">
+
+          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <a href="https://jesseheines.com/CivilRights" target="_blank" rel="noopener" class="activity-card card h-100">
+              <!-- updated by Claude, 2026-11-27 -- Tasks/Tasks_2026-11-27.md
+                   Pass #2: 1280x400 -> 600x400, fits the card better -->
+              <img src="assets/img/CivilRights_600x400.jpg" alt="&ldquo;Civil Rights: A History&rdquo; Video Program" class="activity-card-img">
+              <div class="card-body">
+                <p class="card-title">&ldquo;Civil Rights: A History&rdquo; Video Program</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- removed by Claude, 2026-11-27 -- Tasks/Tasks_2026-11-27.md
+               Pass #2: JMH removed the "Class Website" card (MIT site
+               requires a login, not appropriate for a public link here);
+               also brought the count down to 12 cards, which fits the
+               Bootstrap breakpoints better than 13.
+          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <a href="https://alumcommunity.mit.edu/topics/26522/page/lobby" target="_blank" rel="noopener" class="activity-card card h-100">
+              <img src="assets/img/MITClassOf1970_161x60.jpg" alt="Class Website" class="activity-card-img">
+              <div class="card-body">
+                <p class="card-title">Class Website</p>
+              </div>
+            </a>
+          </div>
+          -->
+
+          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <a href="https://jesseheines.com/~heines/lira" target="_blank" rel="noopener" class="activity-card card h-100">
+              <!-- updated by Claude, 2026-11-27 -- Tasks/Tasks_2026-11-27.md
+                   Pass #3: added --pad-7 modifier class (see index.css) -->
+              <img src="assets/img/LIRA_Logo_transparent_850x964.png" alt="Learning in Retirement Assoc. Notes &amp; Links" class="activity-card-img activity-card-img--pad-7">
+              <div class="card-body">
+                <p class="card-title">Learning in Retirement Assoc. Notes &amp; Links</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <a href="https://gentlemensongsters.org" target="_blank" rel="noopener" class="activity-card card h-100">
+              <img src="assets/img/GentlemenSongsters-1577_150x100_2014-04-04.jpg" alt="Gentlemen Songsters Barbershop Chorus" class="activity-card-img">
+              <div class="card-body">
+                <p class="card-title">Gentlemen Songsters Barbershop Chorus</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <a href="https://firesidequartet.net/" target="_blank" rel="noopener" class="activity-card card h-100">
+              <img src="assets/img/NED_0414_Hollis_Fireside_8575_JMH_150x100_lightened.jpg" alt="Fireside Quartet" class="activity-card-img">
+              <div class="card-body">
+                <p class="card-title">Fireside Quartet</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <a href="https://villageatmeadowood.com/" target="_blank" rel="noopener" class="activity-card card h-100">
+              <!-- updated by Claude, 2026-11-27 -- Tasks/Tasks_2026-11-27.md
+                   Pass #3: added --pad-5 modifier class (see index.css) -->
+              <img src="assets/img/Village_Logo_small_218x250.gif" alt="Meadowood Condo Association" class="activity-card-img activity-card-img--pad-5">
+              <div class="card-body">
+                <p class="card-title">Meadowood Condo Association</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <a href="http://jesseheines.com:8080/~heines/tacts" target="_blank" rel="noopener" class="activity-card card h-100">
+              <img src="assets/img/TACTS_Dsc_0047_123x100.jpg" alt="NSF Project: Teaching a Computer to Sing" class="activity-card-img">
+              <div class="card-body">
+                <p class="card-title">NSF Project: Teaching a Computer to Sing</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <a href="http://jesseheines.com:8080/~heines/TUES" target="_blank" rel="noopener" class="activity-card card h-100">
+              <img src="assets/img/Performamatics_2012-06-21_Workshop_Dsc_0212_v100.jpg" alt="NSF Project: Performamatics" class="activity-card-img">
+              <div class="card-body">
+                <p class="card-title">NSF Project: Performamatics</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <a href="https://scratch.mit.edu/users/performamatics/projects/" target="_blank" rel="noopener" class="activity-card card h-100">
+              <img src="assets/img/ScratchMusicOrg_450x300.jpg" alt="Scratch Music Project" class="activity-card-img">
+              <div class="card-body">
+                <p class="card-title">Scratch Music Project</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <a href="https://jesseheines.com/cssdweb.edu" target="_blank" rel="noopener" class="activity-card card h-100">
+              <!-- updated by Claude, 2026-11-27 -- Tasks/Tasks_2026-11-27.md
+                   Pass #3: added --pad-5 modifier class (see index.css) -->
+              <img src="assets/img/NH_DOC_logo_155x155_v2.gif" alt="NH DOC Career and Technical Ed. Center" class="activity-card-img activity-card-img--pad-5">
+              <div class="card-body">
+                <p class="card-title">NH DOC Career and Technical Ed. Center</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <a href="https://jesseheines.com/CompThinkInSound" target="_blank" rel="noopener" class="activity-card card h-100">
+              <img src="assets/img/CTIScover_h100_82x100.jpg" alt="The Story of Performamatics" class="activity-card-img">
+              <div class="card-body">
+                <p class="card-title">The Story of Performamatics</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <a href="https://jesseheines.com/SecretWar/" target="_blank" rel="noopener" class="activity-card card h-100">
+              <img src="assets/img/SecretWarCover_200x250.jpg" alt="The Story of Service 5-16-5" class="activity-card-img">
+              <div class="card-body">
+                <p class="card-title">The Story of Service 5-16-5</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <a href="https://jesseheines.com/~heines/academic/papers/1984sds4cai/sds4cai-ocr.pdf" target="_blank" rel="noopener" class="activity-card card h-100">
+              <img src="assets/img/SDS4CAIcover_78x100.jpg" alt="Screen Design Strategies for CAI" class="activity-card-img">
+              <div class="card-body">
+                <p class="card-title">Screen Design Strategies for CAI</p>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
 
     <!-- moved by Claude, 2026-11-17 14:35 -- Tasks/Tasks_2026-11-17.md
          Pass #4: the footer was previously a standalone sibling of <main>,
